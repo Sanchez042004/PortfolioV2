@@ -1,0 +1,174 @@
+{
+    "nav": {
+        "about": "Profile",
+        "experience": "Experience",
+        "education": "Education",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "profile": {
+        "role": "Systems Engineer, Developer & Data Analyst",
+        "bio": "Systems Engineer with experience in data analysis and knowledge in software development."
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "viewWork": "View Projects",
+        "contactMe": "Contact Me"
+    },
+    "about": {
+        "title": "About Me",
+        "description": "Engineer with knowledge in Java, SQL, and Python, complemented by web technologies. Experienced in data analysis and report creation with BigQuery and Looker to support decision-making. I work with agile methodologies and Git, focusing on process optimization and providing efficient support."
+    },
+    "experience": {
+        "title": "Experience",
+        "items": [
+            {
+                "role": "Data Analyst Intern",
+                "company": "Connect Assistance",
+                "dates": "February 2025 - August 2025",
+                "description": [
+                    "Developed views in BigQuery using SQL to structure business logic and generate key information for internal and external clients. Additionally, participated in the migration of dashboards to Looker using LookML, implementing data governance practices that facilitated access to management indicators and metrics. Also collaborated in data modeling and documentation, using Git and best practices oriented towards scalability and maintenance of the data product."
+                ]
+            }
+        ]
+    },
+    "education": {
+        "title": "Education",
+        "items": [
+            {
+                "school": "Corporación Universitaria Minuto de Dios",
+                "degree": "Systems Engineering",
+                "dates": "2021 - 2025"
+            }
+        ]
+    },
+    "certifications": {
+        "title": "Certifications & Courses",
+        "viewCertificate": "View Certificate",
+        "items": [
+            {
+                "name": "Python Development Professional Certification",
+                "issuer": "Udemy",
+                "year": "2023",
+                "pdf": "#"
+            },
+            {
+                "name": "Professional Web Development Course",
+                "issuer": "Código Facilito",
+                "year": "2022",
+                "pdf": "/certificates/Certificado Desarrollo Web.pdf"
+            },
+            {
+                "name": "Sales Analytics for Decision Making with Power BI",
+                "issuer": "Coursera",
+                "year": "2023",
+                "pdf": "/certificates/Certificado Analítica de ventas para la toma de decisiones con PowerBI.pdf"
+            },
+            {
+                "name": "Power BI for Business Intelligence",
+                "issuer": "Coursera",
+                "year": "2023",
+                "pdf": "/certificates/Certificado Power BI para Business Intelligence.pdf"
+            },
+            {
+                "name": "NDG Linux Essentials",
+                "issuer": "Cisco Networking Academy",
+                "year": "2022",
+                "pdf": "/certificates/Certificado Curso Linux.pdf"
+            },
+            {
+                "name": "EF Set Certificate B2",
+                "issuer": "EF Set",
+                "year": "2025",
+                "pdf": "/certificates/EF SET Certificate.pdf"
+            }
+        ]
+    },
+    "projects": {
+        "title": "Projects",
+        "viewProject": "View Project",
+        "items": [
+            {
+                "title": "Animal Trip",
+                "description": "Functional app prototype offering safe travel and veterinary accompaniment for pets on planes or buses.",
+                "tags": [
+                    "Java",
+                    "SQL Server",
+                    "Travel",
+                    "Pets"
+                ],
+                "dates": "February 2023 - June 2023",
+                "link": "https://github.com/Sanchez042004/animal-trip"
+            },
+            {
+                "title": "Transporto Bucardo",
+                "description": "Web prototype allowing drivers to request towing or vehicle assistance services immediately with an effective solution.",
+                "tags": [
+                    "React",
+                    "MySQL",
+                    "Business Intelligence",
+                    "Services"
+                ],
+                "dates": "August 2023 - November 2023",
+                "link": "#"
+            },
+            {
+                "title": "Heart & Diabetes ML",
+                "description": "Machine Learning project for extracting open data on diabetes and heart diseases for analysis.",
+                "tags": [
+                    "Python",
+                    "Pandas",
+                    "Jupyter",
+                    "NumPy",
+                    "Scikit Learn"
+                ],
+                "dates": "April 2024 - June 2024",
+                "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
+            },
+            {
+                "title": "Blackjack Strategic Analysis",
+                "description": "Data mining project analyzing Blackjack games in casinos, extracting patterns and generating strategies to optimize in-game decisions.",
+                "tags": [
+                    "R",
+                    "Neural Networks",
+                    "KDD",
+                    "LaTex",
+                    "Data Analysis"
+                ],
+                "dates": "August 2024 - November 2024",
+                "link": "https://github.com/Sanchez042004/blackjack-analysis"
+            }
+        ]
+    },
+    "skills": {
+        "title": "Skills"
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "I am available for projects and job opportunities. Write to me!",
+        "sayHello": "Send Email",
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "Your full name",
+            "email": "Email Address",
+            "emailPlaceholder": "your@email.com",
+            "message": "Message",
+            "messagePlaceholder": "Write your message here...",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully! I'll reply soon.",
+            "error": "There was an error sending the message. Please try again.",
+            "required": "This field is required",
+            "invalidEmail": "Please enter a valid email",
+            "rateLimitError": "Please wait {{seconds}} seconds before sending another message",
+            "nameTooShort": "Name must be at least 2 characters long",
+            "nameTooLong": "Name cannot exceed 100 characters",
+            "messageTooShort": "Message must be at least 10 characters long",
+            "messageTooLong": "Message cannot exceed 1000 characters",
+            "recaptchaNotice": "This site is protected by reCAPTCHA and the Google <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank' rel='noopener'>Terms of Service</a> apply."
+        }
+    },
+    "footer": {
+        "copyright": "© {{year}} {{name}}"
+    }
+}

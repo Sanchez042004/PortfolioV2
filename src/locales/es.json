@@ -1,0 +1,174 @@
+{
+    "nav": {
+        "about": "Perfil",
+        "experience": "Experiencia",
+        "education": "Educación",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "profile": {
+        "role": "Ingeniero de Sistemas, Desarrollador y Analista de datos",
+        "bio": "Ingeniero de Sistemas con experiencia en análisis de datos y conocimientos en desarrollo de software."
+    },
+    "hero": {
+        "greeting": "Hola, soy",
+        "viewWork": "Ver Proyectos",
+        "contactMe": "Contáctame"
+    },
+    "about": {
+        "title": "Sobre Mí",
+        "description": "Ingeniero con conocimientos en Java, SQL y Python, complementado con tecnologías web. Con experiencia en análisis de datos y creación de reportes con BigQuery y Looker para apoyar la toma de decisiones. Trabajo con metodologías ágiles y Git, y me enfoco en optimizar procesos y brindar soporte eficiente."
+    },
+    "experience": {
+        "title": "Experiencia",
+        "items": [
+            {
+                "role": "Practicante de Analista de Datos",
+                "company": "Connect Assistance",
+                "dates": "Febrero 2025 - Agosto 2025",
+                "description": [
+                    "Desarrollé vistas en BigQuery aplicando SQL para estructurar la lógica de negocio y generar información clave para clientes internos y externos. Además, participé en la migración de dashboards a Looker mediante LookML, implementando prácticas de gobernanza de datos que facilitaron el acceso a indicadores y métricas de gestión. Asimismo, colaboré en el modelado y la documentación de datos, utilizando Git y buenas prácticas orientadas a la escalabilidad y mantenimiento del producto de datos."
+                ]
+            }
+        ]
+    },
+    "education": {
+        "title": "Formación Académica",
+        "items": [
+            {
+                "school": "Corporación Universitaria Minuto de Dios",
+                "degree": "Ingeniería de Sistemas",
+                "dates": "2021 - 2025"
+            }
+        ]
+    },
+    "certifications": {
+        "title": "Otros Estudios",
+        "viewCertificate": "Ver Certificado",
+        "items": [
+            {
+                "name": "Python Development Professional Certification",
+                "issuer": "Udemy",
+                "year": "2023",
+                "pdf": "#"
+            },
+            {
+                "name": "Curso Profesional en Desarrollo Web",
+                "issuer": "Código Facilito",
+                "year": "2022",
+                "pdf": "/certificates/Certificado Desarrollo Web.pdf"
+            },
+            {
+                "name": "Analítica de ventas para la toma de decisiones con Power BI",
+                "issuer": "Coursera",
+                "year": "2023",
+                "pdf": "/certificates/Certificado Analítica de ventas para la toma de decisiones con PowerBI.pdf"
+            },
+            {
+                "name": "Power BI para Business Intelligence",
+                "issuer": "Coursera",
+                "year": "2023",
+                "pdf": "/certificates/Certificado Power BI para Business Intelligence.pdf"
+            },
+            {
+                "name": "NDG Linux Essentials",
+                "issuer": "Cisco Networking Academy",
+                "year": "2022",
+                "pdf": "/certificates/Certificado Curso Linux.pdf"
+            },
+            {
+                "name": "EF Set Certificate B2",
+                "issuer": "EF Set",
+                "year": "2025",
+                "pdf": "/certificates/EF SET Certificate.pdf"
+            }
+        ]
+    },
+    "projects": {
+        "title": "Proyectos",
+        "viewProject": "Ver Proyecto",
+        "items": [
+            {
+                "title": "Animal Trip",
+                "description": "Prototipo funcional de aplicación que ofrece viajes seguros y acompañamiento veterinario para mascotas en avión o autobús.",
+                "tags": [
+                    "Java",
+                    "SQL Server",
+                    "Viajes",
+                    "Mascotas"
+                ],
+                "dates": "Febrero 2023 - Junio 2023",
+                "link": "https://github.com/Sanchez042004/animal-trip"
+            },
+            {
+                "title": "Transporto Bucardo",
+                "description": "Prototipo de página web que permite a conductores solicitar servicios de remolque o asistencia vehicular de manera inmediata con solución eficaz.",
+                "tags": [
+                    "React",
+                    "MySQL",
+                    "Business Intelligence",
+                    "Servicios"
+                ],
+                "dates": "Agosto 2023 - Noviembre 2023",
+                "link": "#"
+            },
+            {
+                "title": "Heart & Diabetes ML",
+                "description": "Proyecto de Machine Learning encargado de extraer datos libres de diabetes y enfermedades cardiacas para su análisis.",
+                "tags": [
+                    "Python",
+                    "Pandas",
+                    "Jupyter",
+                    "NumPy",
+                    "Scikit Learn"
+                ],
+                "dates": "Abril 2024 - Junio 2024",
+                "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
+            },
+            {
+                "title": "Análisis Estratégico del Blackjack",
+                "description": "Proyecto que aplica minería de datos para analizar partidas de Blackjack en casinos, extrayendo patrones y generando estrategias para optimizar las decisiones durante el juego.",
+                "tags": [
+                    "R",
+                    "Redes Neuronales",
+                    "KDD",
+                    "LaTex",
+                    "Análisis de Datos"
+                ],
+                "dates": "Agosto 2024 - Noviembre 2024",
+                "link": "https://github.com/Sanchez042004/blackjack-analysis"
+            }
+        ]
+    },
+    "skills": {
+        "title": "Habilidades"
+    },
+    "contact": {
+        "title": "Contacto",
+        "description": "Estoy disponible para proyectos y oportunidades laborales. ¡Escríbeme!",
+        "sayHello": "Enviar Correo",
+        "form": {
+            "name": "Nombre",
+            "namePlaceholder": "Tu nombre completo",
+            "email": "Correo Electrónico",
+            "emailPlaceholder": "tu@email.com",
+            "message": "Mensaje",
+            "messagePlaceholder": "Escribe tu mensaje aquí...",
+            "send": "Enviar Mensaje",
+            "sending": "Enviando...",
+            "success": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+            "error": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.",
+            "required": "Este campo es requerido",
+            "invalidEmail": "Por favor, ingresa un correo válido",
+            "rateLimitError": "Por favor espera {{seconds}} segundos antes de enviar otro mensaje",
+            "nameTooShort": "El nombre debe tener al menos 2 caracteres",
+            "nameTooLong": "El nombre no puede exceder 100 caracteres",
+            "messageTooShort": "El mensaje debe tener al menos 10 caracteres",
+            "messageTooLong": "El mensaje no puede exceder 1000 caracteres",
+            "recaptchaNotice": "Este sitio está protegido por reCAPTCHA y se aplican la <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Política de Privacidad</a> y los <a href='https://policies.google.com/terms' target='_blank' rel='noopener'>Términos de Servicio</a> de Google."
+        }
+    },
+    "footer": {
+        "copyright": "© {{year}} {{name}}"
+    }
+}
