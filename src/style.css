@@ -711,6 +711,40 @@ img {
         padding-top: calc(var(--header-height) + var(--spacing-md));
     }
 
+    /* Center hero content in mobile */
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero-content h1,
+    .hero-content .hero-role,
+    .hero-content .hero-bio {
+        text-align: center;
+    }
+
+    /* Center hero contact info */
+    .hero-contact-info {
+        justify-content: center;
+    }
+
+    /* Center hero action buttons */
+    .hero-actions {
+        justify-content: center;
+    }
+
+    /* Add extra padding to sections for better spacing */
+    .section {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    /* Ensure container has adequate padding */
+    .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
     .grid-cols-2,
     .grid-cols-3 {
         grid-template-columns: 1fr;
@@ -722,10 +756,18 @@ img {
     }
 
     #contact {
-        scroll-margin-top: -15px;
+        scroll-margin-top: 55px;
     }
 
     #experience {
+        scroll-margin-top: 60px;
+    }
+
+    #projects {
+        scroll-margin-top: 70px;
+    }
+
+    #education {
         scroll-margin-top: 60px;
     }
 }
@@ -1244,6 +1286,7 @@ img {
 #education .grid-cols-2 {
     grid-auto-rows: 1fr;
 }
+
 /* Company link - No underline on hover */
 .company-link {
     color: inherit;
