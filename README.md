@@ -287,7 +287,7 @@ Este proyecto es de uso personal. Todos los derechos reservados © 2025 Andrés 
 **Andrés Sánchez**  
 Ingeniero de Sistemas | Desarrollador | Analista de Datos
 
-- 🌐 Portfolio: [tu-portfolio.vercel.app](https://tu-portfolio.vercel.app)
+- 🌐 Portfolio: [tu-portfolio.vercel.app](https://asanchez-cv.vercel.app/)
 - 💼 LinkedIn: [@andres-sanchez04](https://www.linkedin.com/in/andres-sanchez04/)
 - 🐙 GitHub: [@Sanchez042004](https://github.com/Sanchez042004)
 - 🐦 Twitter: [@AndresS97279239](https://twitter.com/AndresS97279239)
