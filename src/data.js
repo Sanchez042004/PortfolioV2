@@ -1,6 +1,6 @@
 export const data = {
     profile: {
-        name: 'Andrés',
+        name: 'Andrés Sánchez',
         location: 'Bogotá D.C, Colombia',
         phone: '+57 3012236454',
         social: {

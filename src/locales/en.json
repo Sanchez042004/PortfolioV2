@@ -1,4 +1,4 @@
-{
+﻿{
     "nav": {
         "about": "Profile",
         "experience": "Experience",
@@ -25,6 +25,7 @@
             {
                 "role": "Data Analyst Intern",
                 "company": "Connect Assistance",
+                "link": "https://www.connect.com.co/",
                 "dates": "February 2025 - August 2025",
                 "description": [
                     "Developed views in BigQuery using SQL to structure business logic and generate key information for internal and external clients. Additionally, participated in the migration of dashboards to Looker using LookML, implementing data governance practices that facilitated access to management indicators and metrics. Also collaborated in data modeling and documentation, using Git and best practices oriented towards scalability and maintenance of the data product."

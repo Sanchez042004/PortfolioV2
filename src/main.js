@@ -253,6 +253,8 @@ const setupContactForm = async () => {
       const remainingSeconds = Math.ceil((RATE_LIMIT_MS - timeSinceLastSubmission) / 1000)
       formMessage.textContent = t('contact.form.rateLimitError', { seconds: remainingSeconds })
       formMessage.className = 'form-message error'
+      // Scroll to error message
+      formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
       return
     }
     // Validate fields
@@ -323,11 +325,15 @@ const setupContactForm = async () => {
       // Show success message
       formMessage.textContent = t('contact.form.success')
       formMessage.className = 'form-message success'
+      // Scroll to message
+      formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
       // Clear form
       form.reset()
     } catch (error) {
       formMessage.textContent = t('contact.form.error')
       formMessage.className = 'form-message error'
+      // Scroll to error message
+      formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
     } finally {
       // Restore button state
       submitBtn.textContent = originalText
@@ -388,12 +394,32 @@ const applyTheme = (theme) => {
     }
   })
 
-  // Trigger animation
+  // Trigger animation (only once, not per icon)
   const icons = document.querySelectorAll('.theme-icon')
-  icons.forEach(icon => {
-    icon.style.transform = 'rotate(360deg)'
-    setTimeout(() => icon.style.transform = 'rotate(0deg)', 500)
-  })
+  if (icons.length > 0) {
+    // Remove any existing animation
+    icons.forEach(icon => {
+      icon.style.transition = 'none'
+      icon.style.transform = 'rotate(0deg)'
+    })
+
+    // Trigger reflow to restart animation
+    void icons[0].offsetWidth
+
+    // Apply animation
+    icons.forEach(icon => {
+      icon.style.transition = 'transform 0.3s ease-in-out'
+      icon.style.transform = 'rotate(360deg)'
+    })
+
+    // Reset after animation
+    setTimeout(() => {
+      icons.forEach(icon => {
+        icon.style.transition = 'none'
+        icon.style.transform = 'rotate(0deg)'
+      })
+    }, 500)
+  }
 }
 
 /**
@@ -614,10 +640,6 @@ const Education = () => {
   `
 }
 
-/**
- * Render the experience section
- * @returns {string} HTML string for the experience section
- */
 const Experience = () => {
   const experienceItems = t('experience.items', { returnObjects: true })
 
@@ -625,7 +647,11 @@ const Experience = () => {
     <article class="card">
       <div class="card-content">
         <h3 class="card-title">${exp.role}</h3>
-        <p class="card-subtitle">${exp.company}</p>
+        <p class="card-subtitle">
+          ${exp.link && exp.link !== '#'
+      ? `<a href="${exp.link}" target="_blank" rel="noopener noreferrer" class="company-link">${exp.company}</a>`
+      : exp.company}
+        </p>
         <p class="card-meta">${exp.dates}</p>
         <p class="card-description">${exp.description}</p>
       </div>

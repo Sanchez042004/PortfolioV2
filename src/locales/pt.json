@@ -1,4 +1,4 @@
-{
+﻿{
     "nav": {
         "about": "Perfil",
         "experience": "Experiência",
@@ -25,6 +25,7 @@
             {
                 "role": "Estagiário de Analista de Dados",
                 "company": "Connect Assistance",
+                "link": "https://www.connect.com.co/",
                 "dates": "Fevereiro 2025 - Agosto 2025",
                 "description": [
                     "Desenvolvi views no BigQuery aplicando SQL para estruturar a lógica de negócio e gerar informações-chave para clientes internos e externos. Além disso, participei da migração de dashboards para o Looker usando LookML, implementando práticas de governança de dados que facilitaram o acesso a indicadores e métricas de gestão. Também colaborei na modelagem e documentação de dados, utilizando Git e boas práticas orientadas à escalabilidade e manutenção do produto de dados."
