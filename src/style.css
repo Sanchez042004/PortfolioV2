@@ -220,6 +220,36 @@ img {
     background-color: var(--color-surface);
 }
 
+/* CV Download Button */
+.btn-cv {
+    background-color: #DC143C;
+    color: #ffffff;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cv:hover {
+    background-color: #B8102E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+}
+
+.btn-cv svg {
+    flex-shrink: 0;
+}
+
+/* Light mode adjustments for CV button */
+[data-theme="light"] .btn-cv {
+    background-color: #DC143C;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.2);
+}
+
+[data-theme="light"] .btn-cv:hover {
+    background-color: #B8102E;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+}
+
 /* ========================================
    ANIMATIONS
    ======================================== */
@@ -731,6 +761,19 @@ img {
     /* Center hero action buttons */
     .hero-actions {
         justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Responsive CV button for mobile */
+    .btn-cv {
+        min-width: 165px;
+        padding-right: 1.6rem;
+        padding-left: 1.3rem;
+        margin-left: 10px;
+    }
+
+    .cv-text {
+        display: inline;
     }
 
     /* Add extra padding to sections for better spacing */
@@ -769,6 +812,23 @@ img {
 
     #education {
         scroll-margin-top: 60px;
+    }
+}
+
+/* Extra Small Screens: < 400px */
+@media (max-width: 399px) {
+    .btn {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-cv {
+        min-width: 100px;
+    }
+
+    .btn-cv svg {
+        width: 16px;
+        height: 16px;
     }
 }
 

@@ -13,7 +13,8 @@
     "hero": {
         "greeting": "Olá, sou",
         "viewWork": "Ver Projetos",
-        "contactMe": "Contate-me"
+        "contactMe": "Contate-me",
+        "downloadCV": "Baixar CV"
     },
     "about": {
         "title": "Sobre Mim",
@@ -100,18 +101,6 @@
                 ],
                 "dates": "Fevereiro 2023 - Junho 2023",
                 "link": "https://github.com/Sanchez042004/animal-trip"
-            },
-            {
-                "title": "Transporto Bucardo",
-                "description": "Protótipo de site que permite aos motoristas solicitar serviços de reboque ou assistência veicular imediatamente com solução eficaz.",
-                "tags": [
-                    "React",
-                    "MySQL",
-                    "Business Intelligence",
-                    "Serviços"
-                ],
-                "dates": "Agosto 2023 - Novembro 2023",
-                "link": "#"
             },
             {
                 "title": "Heart & Diabetes ML",

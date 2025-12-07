@@ -13,7 +13,8 @@
     "hero": {
         "greeting": "Hi, I'm",
         "viewWork": "View Projects",
-        "contactMe": "Contact Me"
+        "contactMe": "Contact Me",
+        "downloadCV": "Download CV"
     },
     "about": {
         "title": "About Me",
@@ -100,18 +101,6 @@
                 ],
                 "dates": "February 2023 - June 2023",
                 "link": "https://github.com/Sanchez042004/animal-trip"
-            },
-            {
-                "title": "Transporto Bucardo",
-                "description": "Web prototype allowing drivers to request towing or vehicle assistance services immediately with an effective solution.",
-                "tags": [
-                    "React",
-                    "MySQL",
-                    "Business Intelligence",
-                    "Services"
-                ],
-                "dates": "August 2023 - November 2023",
-                "link": "#"
             },
             {
                 "title": "Heart & Diabetes ML",
