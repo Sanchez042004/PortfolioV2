@@ -17,7 +17,7 @@
         "downloadCV": "Baixar CV"
     },
     "about": {
-        "title": "Sobre Mim",
+        "title": "Perfil",
         "description": "Engenheiro com conhecimentos em Java, SQL e Python, complementado por tecnologias web. Com experiência em análise de dados e criação de relatórios com BigQuery e Looker para apoiar a tomada de decisões. Trabalho com metodologias ágeis e Git, focando na otimização de processos e no suporte eficiente."
     },
     "experience": {
@@ -35,7 +35,7 @@
         ]
     },
     "education": {
-        "title": "Formação Académica",
+        "title": "Educação",
         "items": [
             {
                 "school": "Corporación Universitaria Minuto de Dios",
@@ -48,12 +48,6 @@
         "title": "Outros Estudos",
         "viewCertificate": "Ver Certificado",
         "items": [
-            {
-                "name": "Python Development Professional Certification",
-                "issuer": "Udemy",
-                "year": "2023",
-                "pdf": "#"
-            },
             {
                 "name": "Curso Profissional em Desenvolvimento Web",
                 "issuer": "Código Facilito",

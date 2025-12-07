@@ -17,7 +17,7 @@
         "downloadCV": "Download CV"
     },
     "about": {
-        "title": "About Me",
+        "title": "Profile",
         "description": "Engineer with knowledge in Java, SQL, and Python, complemented by web technologies. Experienced in data analysis and report creation with BigQuery and Looker to support decision-making. I work with agile methodologies and Git, focusing on process optimization and providing efficient support."
     },
     "experience": {
@@ -48,12 +48,6 @@
         "title": "Certifications & Courses",
         "viewCertificate": "View Certificate",
         "items": [
-            {
-                "name": "Python Development Professional Certification",
-                "issuer": "Udemy",
-                "year": "2023",
-                "pdf": "#"
-            },
             {
                 "name": "Professional Web Development Course",
                 "issuer": "Código Facilito",

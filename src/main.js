@@ -469,7 +469,7 @@ const Header = () => {
   return `
     <header class="header">
       <div class="container header-content">
-        <a href="#" class="logo">Curriculum Vitae</a>
+        <a href="#" class="logo" onclick="window.closeMobileMenu()">Curriculum Vitae</a>
         
         <!-- Desktop Navigation -->
         <nav class="desktop-nav flex items-center gap-md">
@@ -567,23 +567,18 @@ const Hero = () => {
         <h1>${t('hero.greeting')} ${data.profile.name}.</h1>
  <p class="hero-bio">${t('profile.bio')}</p>
  <div class="hero-contact-info">
-          <span class="hero-contact-item">
+          <a href="https://www.google.com/maps/place/Bogot%C3%A1,+Bogota/data=!4m2!3m1!1s0x8e3f9bfd2da6cb29:0x239d635520a33914?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener noreferrer" class="hero-contact-item hover:text-primary transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 930 1280" fill="currentColor" class="hero-contact-icon location">
               <path d="M4335 12789 c-1496 -104 -2843 -915 -3635 -2190 -232 -373 -414 -787 -529 -1204 -305 -1107 -197 -2278 305 -3295 191 -387 372 -660 676 -1020 34 -41 753 -976 1596 -2077 918 -1199 1555 -2022 1588 -2052 186 -170 442 -170 628 0 33 30 670 853 1588 2052 843 1101 1562 2036 1596 2077 304 360 485 633 676 1020 566 1147 629 2502 174 3695 -353 923 -967 1689 -1798 2242 -825 549 -1864 821 -2865 752z m559 -2254 c224 -29 398 -81 601 -180 553 -268 931 -756 1062 -1374 25 -116 27 -145 28 -366 0 -267 -10 -345 -70 -555 -161 -561 -586 -1032 -1130 -1253 -201 -82 -365 -120 -592 -139 -294 -25 -593 23 -878 139 -544 221 -969 692 -1130 1253 -60 210 -70 288 -70 555 1 221 3 250 28 366 112 527 406 965 842 1252 177 116 437 227 637 271 209 46 467 58 672 31z" transform="scale(0.1 0.1)"/>
             </svg>
             ${data.profile.location}
-          </span>
-          <span class="hero-contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 997 1280" fill="currentColor" class="hero-contact-icon phone">
-              <path d="M3045 12782 c-27 -10 -230 -122 -450 -248 -220 -127 -506 -291 -635 -364 -301 -171 -350 -219 -382 -374 -23 -106 -15 -124 273 -615 480 -820 1464 -2453 1505 -2500 54 -59 132 -106 213 -127 113 -28 117 -27 650 279 262 151 553 318 648 371 236 134 298 204 325 370 21 129 12 151 -211 521 -1045 1729 -1554 2566 -1580 2597 -73 87 -245 131 -356 90z M1193 11440 c-530 -152 -892 -537 -1069 -1139 -285 -967 -66 -2490 601 -4181 675 -1710 1696 -3334 2810 -4469 954 -971 1864 -1506 2775 -1632 127 -18 508 -18 625 -1 218 33 412 85 604 161 86 35 177 76 189 86 5 4 -872 1531 -975 1695 -105 168 -311 504 -630 1030 -170 279 -140 257 -293 219 -128 -31 -394 -34 -545 -5 -331 61 -711 251 -1050 523 -139 111 -397 363 -527 513 -197 228 -397 506 -563 785 -101 170 -151 270 -218 440 -168 426 -272 819 -323 1220 -25 198 -23 540 5 722 53 353 178 647 377 890 30 36 52 68 50 72 -2 3 -56 95 -120 204 -168 286 -414 732 -816 1477 -492 914 -776 1420 -795 1419 -5 0 -56 -13 -112 -29z M7690 4686 c-19 -8 -237 -130 -485 -273 -247 -143 -533 -306 -635 -363 -199 -113 -268 -169 -308 -251 -51 -105 -48 -215 7 -313 701 -1244 1679 -2927 1734 -2984 18 -18 61 -48 97 -65 59 -29 73 -32 160 -32 l96 0 159 92 c88 50 385 220 660 377 275 158 512 299 528 314 41 38 76 95 98 160 22 63 26 199 7 253 -6 19 -100 185 -208 369 -109 184 -403 688 -655 1120 -656 1125 -854 1460 -887 1502 -18 23 -55 50 -96 70 -57 28 -78 33 -152 35 -53 2 -98 -3 -120 -11z" transform="scale(0.1 0.1)"/>
-            </svg>
-            ${data.profile.phone}
-          </span>
+          </a>
+
         </div>
         <div class="flex gap-sm hero-actions">
           <a href="#projects" class="btn btn-primary">${t('hero.viewWork')}</a>
           <a href="#contact" class="btn btn-outline">${t('hero.contactMe')}</a>
-          <a href="/CV/CV.pdf" download class="btn btn-cv" aria-label="Download CV">
+          <a href="/CV/Ing_Andres_Sanchez_CV.pdf" download class="btn btn-cv" aria-label="Download CV">
             ${pdfIcon}
             <span class="cv-text">${t('hero.downloadCV')}</span>
           </a>
@@ -754,6 +749,10 @@ const Certifications = () => {
 const Projects = () => {
   const projects = t('projects.items', { returnObjects: true })
 
+  /* SVGs for Project Buttons */
+  const githubIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`
+  const deployIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`
+
   const projectCards = projects.map(project => `
     <article class="card">
       <div class="card-content">
@@ -762,9 +761,23 @@ const Projects = () => {
         <div class="flex project-tags">
           ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
         </div>
-        <div class="flex items-center justify-between">
-          <p class="project-dates">${project.dates}</p>
-          ${project.link && project.link !== '#' ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="nav-link project-link">${t('projects.viewProject')} &rarr;</a>` : ''}
+        <div class="flex flex-col gap-xs items-start" style="margin-top: auto;">
+           <p class="project-dates">${project.dates}</p>
+           <div class="flex gap-sm">
+             ${project.link && project.link !== '#' ? `
+               <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline flex items-center gap-xs" aria-label="Ver código en GitHub">
+                 ${githubIcon}
+                 GitHub
+               </a>
+             ` : ''}
+             
+             ${project.deploy && project.deploy !== '#' ? `
+               <a href="${project.deploy}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline flex items-center gap-xs" aria-label="Ver despliegue">
+                 ${deployIcon}
+                 Demo
+               </a>
+             ` : ''}
+           </div>
         </div>
       </div>
     </article>
@@ -788,8 +801,6 @@ const Contact = () => {
   const githubIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px" fill="currentColor"><path d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z"/></svg>`
 
   const linkedinIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px" fill="currentColor"><path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"/></svg>`
-
-  const twitterIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="40px" height="40px" fill="currentColor"><path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"/></svg>`
 
   return `
     <section id="contact" class="section container contact-section">
@@ -854,9 +865,7 @@ const Contact = () => {
       <!-- Social Links -->
       <div class="flex gap-md contact-social-links">
         <a href="${data.profile.social.github}" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="GitHub profile">${githubIcon}</a>
-        <a href="${data.profile.social.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="LinkedIn profile">${linkedinIcon}</a>
-        <a href="${data.profile.social.twitter}" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="Twitter profile">${twitterIcon}</a>
-      </div>
+        <a href="${data.profile.social.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-social-icon" aria-label="LinkedIn profile">${linkedinIcon}</a>      </div>
     </section>
   `
 }

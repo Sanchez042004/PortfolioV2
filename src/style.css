@@ -185,6 +185,19 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
+.items-start {
+    align-items: flex-start;
+}
+
+.gap-xs {
+    gap: var(--spacing-xs);
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
 /* ========================================
    BUTTON COMPONENTS
    ======================================== */
@@ -300,6 +313,7 @@ img {
 .logo {
     font-weight: 700;
     font-size: 1.25rem;
+    margin-left: -15px;
 }
 
 .nav-link {
@@ -322,6 +336,7 @@ img {
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
+    margin-right: -23px;
 }
 
 .theme-icon {
@@ -342,6 +357,7 @@ img {
 
 .hero-content {
     max-width: 800px;
+    margin-left: -15px;
 }
 
 .hero-role {
@@ -360,6 +376,9 @@ img {
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card:hover {
@@ -376,6 +395,9 @@ img {
 
 .card-content {
     padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 /* ========================================
@@ -704,6 +726,7 @@ img {
     gap: var(--spacing-sm);
     align-items: center;
     justify-content: center;
+    margin-right: 15px;
 }
 
 /* Desktop Navigation - visible by default */
@@ -717,8 +740,13 @@ img {
 
 /* Mobile: < 768px */
 @media (max-width: 767px) {
+    .logo {
+        margin-left: 0px;
+    }
+
     .mobile-menu-wrapper {
         display: flex;
+        margin-right: -10px;
     }
 
     .mobile-nav {
@@ -1057,6 +1085,7 @@ img {
 .cert-button {
     font-size: 0.8rem;
     padding: 0.25rem 0.5rem;
+    width: fit-content;
 }
 
 /* Contact Section */
@@ -1146,6 +1175,11 @@ img {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+a.hero-contact-item:hover {
+    color: var(--color-primary);
 }
 
 .hero-contact-icon {
@@ -1156,9 +1190,7 @@ img {
     transform: rotate(180deg);
 }
 
-.hero-contact-icon.phone {
-    transform: rotate(-75deg);
-}
+
 
 /* Mobile Menu Copyright */
 .mobile-copyright {

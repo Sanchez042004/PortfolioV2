@@ -17,7 +17,7 @@
         "downloadCV": "Descargar CV"
     },
     "about": {
-        "title": "Sobre Mí",
+        "title": "Perfil",
         "description": "Ingeniero con conocimientos en Java, SQL y Python, complementado con tecnologías web. Con experiencia en análisis de datos y creación de reportes con BigQuery y Looker para apoyar la toma de decisiones. Trabajo con metodologías ágiles y Git, y me enfoco en optimizar procesos y brindar soporte eficiente."
     },
     "experience": {
@@ -35,7 +35,7 @@
         ]
     },
     "education": {
-        "title": "Formación Académica",
+        "title": "Educación",
         "items": [
             {
                 "school": "Corporación Universitaria Minuto de Dios",
@@ -48,12 +48,6 @@
         "title": "Otros Estudios",
         "viewCertificate": "Ver Certificado",
         "items": [
-            {
-                "name": "Python Development Professional Certification",
-                "issuer": "Udemy",
-                "year": "2023",
-                "pdf": "#"
-            },
             {
                 "name": "Curso Profesional en Desarrollo Web",
                 "issuer": "Código Facilito",
@@ -92,7 +86,7 @@
         "items": [
             {
                 "title": "Animal Trip",
-                "description": "Prototipo funcional de aplicación que ofrece viajes seguros y acompañamiento veterinario para mascotas en avión o autobús.",
+                "description": "Prototipo de aplicación que gestiona viajes seguros y brinda acompañamiento veterinario integral para mascotas en transporte aéreo y terrestre.",
                 "tags": [
                     "Java",
                     "SQL Server",
@@ -104,7 +98,7 @@
             },
             {
                 "title": "Heart & Diabetes ML",
-                "description": "Proyecto de Machine Learning encargado de extraer datos libres de diabetes y enfermedades cardiacas para su análisis.",
+                "description": "Modelo de Machine Learning enfocado en analizar conjuntos de datos clínicos para detectar patrones de diabetes y enfermedades cardíacas.",
                 "tags": [
                     "Python",
                     "Pandas",
@@ -117,7 +111,7 @@
             },
             {
                 "title": "Análisis Estratégico del Blackjack",
-                "description": "Proyecto que aplica minería de datos para analizar partidas de Blackjack en casinos, extrayendo patrones y generando estrategias para optimizar las decisiones durante el juego.",
+                "description": "Minería de datos aplicada al Blackjack para extraer patrones de juego y generar estrategias óptimas de toma de decisiones.",
                 "tags": [
                     "R",
                     "Redes Neuronales",

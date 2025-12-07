@@ -2,7 +2,6 @@ export const data = {
     profile: {
         name: 'Andrés Sánchez',
         location: 'Bogotá D.C, Colombia',
-        phone: '+57 3012236454',
         social: {
             email: 'mailto:afsarias2004@gmail.com',
             github: 'https://github.com/Sanchez042004',
