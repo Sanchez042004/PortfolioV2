@@ -218,9 +218,6 @@ El portfolio implementa múltiples capas de seguridad:
 - ✅ **Variables de Entorno** - Credenciales no expuestas en código
 - ✅ **Longitud de Campos** - Límites min/max para prevenir abusos
 
-> [!WARNING]
-> **NUNCA** subas el archivo `.env` a Git. Está incluido en `.gitignore` por seguridad.
-
 ## 🐛 Solución de Problemas
 
 ### Formulario no envía emails
