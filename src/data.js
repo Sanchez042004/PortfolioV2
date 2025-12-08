@@ -1,12 +1,12 @@
 export const data = {
     profile: {
-        name: 'Andrés Sánchez',
-        location: 'Bogotá D.C, Colombia',
+        name: import.meta.env.VITE_PROFILE_NAME || 'Tu Nombre',
+        location: import.meta.env.VITE_PROFILE_LOCATION || 'Tu Ciudad, País',
         social: {
-            email: 'mailto:afsarias2004@gmail.com',
-            github: 'https://github.com/Sanchez042004',
-            linkedin: 'https://www.linkedin.com/in/andres-sanchez04/',
-            twitter: 'https://twitter.com/AndresS97279239'
+            email: `mailto:${import.meta.env.VITE_PROFILE_EMAIL || 'tu@email.com'}`,
+            github: import.meta.env.VITE_PROFILE_GITHUB || 'https://github.com/',
+            linkedin: import.meta.env.VITE_PROFILE_LINKEDIN || 'https://linkedin.com/',
+            twitter: import.meta.env.VITE_PROFILE_TWITTER || 'https://twitter.com/'
         }
     },
     nav: [
