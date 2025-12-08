@@ -114,13 +114,24 @@ portfolio/
 │   │   └── EF SET Certificate.pdf
 │   └── iconAndres.ico        # Favicon
 ├── src/
-│   ├── locales/              # Traducciones i18next
+│   ├── components/            # Componentes UI modularizados
+│   │   ├── Layout/            # Header, Footer
+│   │   ├── Sections/          # Hero, About, Projects, Contact...
+│   │   └── UI/                # Modal, Toast Notification
+│   ├── locales/               # Traducciones i18next
 │   │   ├── es.json          # 🇨🇴 Español
 │   │   ├── en.json          # 🇺🇸 Inglés
 │   │   └── pt.json          # 🇧🇷 Portugués
+│   ├── services/              # Lógica de negocio y servicios
+│   │   ├── contact.js         # Manejo de formulario y EmailJS
+│   │   ├── i18n.js            # Configuración de idiomas
+│   │   └── theme.js           # Gestión de temas (Claro/Oscuro)
+│   ├── styles/                # Estilos globales
+│   │   └── style.css          # Hoja de estilos principal
+│   ├── utils/                 # Utilidades
+│   │   └── scrollSpy.js       # Lógica de navegación activa
 │   ├── data.js              # Datos estáticos (nav, skills, social)
-│   ├── main.js              # Lógica de la aplicación
-│   └── style.css            # Estilos globales + temas
+│   └── main.js              # Punto de entrada y orquestación
 ├── index.html               # HTML principal
 ├── .env                     # Variables de entorno
 ├── .env.example             # Plantilla de variables
