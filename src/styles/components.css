@@ -1,0 +1,516 @@
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.btn-outline {
+    border-color: var(--color-border);
+    background-color: transparent;
+    color: var(--color-text);
+}
+
+.btn-outline:hover {
+    border-color: var(--color-text);
+    background-color: var(--color-surface);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* CV Button */
+.btn-cv {
+    background-color: #DC143C;
+    color: #ffffff;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cv:hover {
+    background-color: #B8102E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+}
+
+.btn-cv svg {
+    flex-shrink: 0;
+}
+
+/* Light Theme Buttons */
+[data-theme="light"] .btn-primary {
+    background-color: #0A66C2;
+    color: #FFFFFF;
+}
+
+[data-theme="light"] .btn-primary:hover {
+    background-color: #004182;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 102, 194, 0.2);
+}
+
+[data-theme="light"] .btn-outline {
+    background-color: transparent;
+    color: #0A66C2;
+    border: 2px solid #0A66C2;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background-color: #E0F2FE;
+    color: #004182;
+    border-color: #0A66C2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 102, 194, 0.15);
+}
+
+[data-theme="light"] .btn-cv {
+    background-color: #DC143C;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.2);
+}
+
+[data-theme="light"] .btn-cv:hover {
+    background-color: #B8102E;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-text-muted);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--color-surface-hover);
+}
+
+.card-content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-subtitle {
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-description {
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   TAGS
+   ======================================== */
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-surface-hover);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   LANGUAGE SELECTOR
+   ======================================== */
+.lang-selector {
+    position: relative;
+}
+
+.lang-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--color-text);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.lang-toggle svg {
+    width: 24px;
+    height: 16px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.lang-option:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.lang-option:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.lang-option:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.lang-option svg {
+    width: 24px;
+    height: 16px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.lang-name {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.lang-option.selected {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.lang-option.selected:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.lang-option.selected .lang-name {
+    color: #ffffff;
+}
+
+/* Mobile Language Selector Bottom Sheet */
+.mobile-lang-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.mobile-lang-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0s linear;
+}
+
+#mobile-lang-dropdown {
+    position: fixed;
+    top: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateY(110%);
+    border-radius: 24px 24px 0 0;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-primary);
+    padding: 2.5rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    opacity: 1;
+    visibility: hidden;
+    z-index: 1002;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, visibility 0s linear 0.2s;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    min-width: 0;
+}
+
+#mobile-lang-dropdown.active {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, visibility 0s linear;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#mobile-lang-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 5px;
+    background-color: var(--color-border);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#mobile-lang-dropdown .lang-option {
+    background-color: var(--color-bg);
+    padding: 1rem;
+    border-radius: 16px;
+    justify-content: center;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#mobile-lang-dropdown .lang-option svg {
+    width: 28px;
+    height: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#mobile-lang-dropdown .lang-option.selected {
+    background-color: var(--color-bg);
+    border-color: var(--color-primary);
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#mobile-lang-dropdown .lang-option.selected .lang-name {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--color-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    margin-right: -23px;
+}
+
+.theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    width: 90%;
+    height: 90%;
+    max-width: 1000px;
+    border-radius: var(--radius-md);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#pdf-frame {
+    border: none;
+}
+
+/* ========================================
+   TOAST
+   ======================================== */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 400;
+    border: 1px solid var(--color-border);
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toast svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE COMPONENT ADJUSTMENTS
+   ======================================== */
+@media (max-width: 767px) {
+
+    /* Responsive CV Button */
+    .btn-cv {
+        min-width: 165px;
+        padding-right: 1.6rem;
+        padding-left: 1.3rem;
+        margin-left: 10px;
+    }
+
+    .cv-text {
+        display: inline;
+    }
+
+    /* Responsive Toast */
+    .toast {
+        bottom: 40px;
+        width: 50%;
+        max-width: 350px;
+        text-align: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+    }
+}
+
+@media (max-width: 399px) {
+    .btn {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-cv {
+        min-width: 100px;
+    }
+
+    .btn-cv svg {
+        width: 16px;
+        height: 16px;
+    }
+}

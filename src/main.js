@@ -6,7 +6,12 @@
  * Description: Multi-language portfolio with theme switching
  */
 
-import './styles/style.css'
+import './styles/variables.css'
+import './styles/reset.css'
+import './styles/utilities.css'
+import './styles/layout.css'
+import './styles/components.css'
+import './styles/sections.css'
 import { initI18next } from './services/i18n.js'
 import { getSavedTheme, applyTheme, toggleTheme } from './services/theme.js'
 import { setupContactForm } from './services/contact.js'

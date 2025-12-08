@@ -1,0 +1,61 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES (Variables)
+   ======================================== */
+:root {
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --line-height-base: 1.6;
+    --line-height-tight: 1.2;
+
+    /* Spacing Scale */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 2rem;
+    /* 32px */
+    --spacing-lg: 4rem;
+    /* 64px */
+    --spacing-xl: 8rem;
+    /* 128px */
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height: 80px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+
+    /* Dark Mode Colors (Default) */
+    --color-primary: #3B82F6;
+    --color-primary-hover: #60A5FA;
+    --color-secondary: #94A3B8;
+    --color-bg: #0F172A;
+    --color-surface: #1E293B;
+    --color-surface-hover: #334155;
+    --color-text: #F1F5F9;
+    --color-text-muted: #CBD5E1;
+    --color-border: #334155;
+}
+
+/* Light Mode Color Overrides */
+[data-theme="light"] {
+    /* Colores Primarios */
+    --color-primary: #2563EB;
+    /* Ajuste fino para modo claro inspirado en LinkedIn/Notion */
+    --color-primary: #0A66C2;
+    --color-primary-hover: #004182;
+    --color-secondary: #71767B;
+
+    /* Fondos */
+    --color-bg: #F5F5F4;
+    --color-surface: #FAFAF9;
+    --color-surface-hover: #F0F0EE;
+
+    /* Textos */
+    --color-text: #1C1917;
+    --color-text-muted: #57534E;
+    --color-border: #E7E5E4;
+}
