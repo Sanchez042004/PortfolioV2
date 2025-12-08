@@ -678,7 +678,7 @@ img {
     background-color: var(--color-bg);
     z-index: 999;
     padding: var(--spacing-md);
-    overflow-y: auto;
+    overflow-y: hidden;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 
@@ -1389,4 +1389,164 @@ a.hero-contact-item:hover {
 .company-link:hover {
     opacity: 0.7;
     text-decoration: none;
+}
+
+/* ========================================
+   TOAST NOTIFICATION
+   ======================================== */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 400;
+    border: 1px solid var(--color-border);
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toast svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================
+   SELECTED LANGUAGE STATE
+   ======================================== */
+.lang-option.selected {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.lang-option.selected:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.lang-option.selected .lang-name {
+    color: #ffffff;
+}
+
+/* ========================================
+   RESPONSIVE TOAST
+   ======================================== */
+@media (max-width: 767px) {
+    .toast {
+        bottom: 40px;
+        /* Positioned slightly higher */
+        width: 50%;
+        max-width: 350px;
+        text-align: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        font-size: 0.9rem;
+        z-index: 10000;
+        /* Ensure it is on top of everything */
+    }
+
+
+    /* Make mobile nav a flex container to push copyright to bottom */
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ========================================
+       MOBILE LANGUAGE SELECTOR - BOTTOM SHEET
+       ======================================== */
+    #mobile-lang-dropdown {
+        position: fixed;
+        /* Becomes absolute relative to transformed parent */
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: translateY(110%);
+        border-radius: 24px 24px 0 0;
+        background-color: var(--color-surface);
+        border-top: 1px solid var(--color-primary);
+        padding: 2.5rem 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        opacity: 1;
+        visibility: visible;
+        z-index: 1002;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        min-width: 0;
+    }
+
+    #mobile-lang-dropdown.active {
+        transform: translateY(0);
+        /* Dim content behind */
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2), 0 -100px 0 100vh rgba(0, 0, 0, 0.6);
+    }
+
+    /* Bottom Sheet Handle */
+    #mobile-lang-dropdown::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 5px;
+        background-color: var(--color-border);
+        border-radius: 10px;
+        opacity: 0.5;
+    }
+
+    /* Option Cards */
+    #mobile-lang-dropdown .lang-option {
+        background-color: var(--color-bg);
+        padding: 1rem;
+        border-radius: 16px;
+        justify-content: center;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Larger Flags */
+    #mobile-lang-dropdown .lang-option svg {
+        width: 28px;
+        height: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Selected State Override */
+    #mobile-lang-dropdown .lang-option.selected {
+        background-color: var(--color-bg);
+        /* Keep bg but adding border accent */
+        border-color: var(--color-primary);
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    #mobile-lang-dropdown .lang-option.selected .lang-name {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
 }

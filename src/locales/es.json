@@ -154,5 +154,10 @@
     },
     "footer": {
         "copyright": "© {{year}} {{name}}"
+    },
+    "themes": {
+        "light": "Tema Claro",
+        "dark": "Tema Oscuro",
+        "system": "Tema del Sistema"
     }
 }
