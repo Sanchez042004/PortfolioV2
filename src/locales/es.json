@@ -11,7 +11,7 @@
         "bio": "Ingeniero de Sistemas con experiencia en análisis de datos y conocimientos en desarrollo de software."
     },
     "hero": {
-        "greeting": "Hola, soy",
+        "greeting": "¡Hola! soy",
         "viewWork": "Ver Proyectos",
         "contactMe": "Contáctame",
         "downloadCV": "Descargar CV"
@@ -27,7 +27,7 @@
                 "role": "Practicante de Analista de Datos",
                 "company": "Connect Assistance",
                 "link": "https://www.connect.com.co/",
-                "dates": "Febrero 2025 - Agosto 2025",
+                "dates": "Febrero 2020 - Agosto 2025",
                 "description": [
                     "Desarrollé vistas en BigQuery aplicando SQL para estructurar la lógica de negocio y generar información clave para clientes internos y externos. Además, participé en la migración de dashboards a Looker mediante LookML, implementando prácticas de gobernanza de datos que facilitaron el acceso a indicadores y métricas de gestión. Asimismo, colaboré en el modelado y la documentación de datos, utilizando Git y buenas prácticas orientadas a la escalabilidad y mantenimiento del producto de datos."
                 ]

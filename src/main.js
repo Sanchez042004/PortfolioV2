@@ -11,7 +11,10 @@ import './styles/reset.css'
 import './styles/utilities.css'
 import './styles/layout.css'
 import './styles/components.css'
+import './styles/forms.css'
 import './styles/sections.css'
+import './styles/effects.css'
+import './styles/timeline.css'
 import { initI18next } from './services/i18n.js'
 import { getSavedTheme, applyTheme, toggleTheme } from './services/theme.js'
 import { setupContactForm } from './services/contact.js'
@@ -28,6 +31,7 @@ import { Projects } from './components/Sections/Projects.js'
 import { Certifications } from './components/Sections/Certifications.js'
 import { Contact } from './components/Sections/Contact.js'
 import { Modal, openModal, closeModal } from './components/UI/Modal.js'
+import { Spotlight } from './components/UI/Spotlight.js'
 
 const app = document.querySelector('#app')
 
@@ -49,6 +53,7 @@ const render = () => {
     </main>
     ${Footer()}
     ${Modal()}
+    ${Spotlight()}
   `
 }
 
@@ -90,6 +95,15 @@ const init = async () => {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (getSavedTheme() === 'system') {
       applyTheme('system')
+    }
+  })
+
+  // Track mouse position for spotlight effect
+  window.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`)
+    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`)
+    if (!document.body.classList.contains('has-mouse-moved')) {
+      document.body.classList.add('has-mouse-moved')
     }
   })
 }

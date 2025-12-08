@@ -18,6 +18,6 @@ export const data = {
     ],
     skills: [
         'HTML', 'CSS', 'Git', 'Python', 'SQL', 'BigQuery',
-        'Looker', 'Java', 'Office', 'Business Intelligence'
+        'Looker', 'Java', 'Office'
     ]
 };

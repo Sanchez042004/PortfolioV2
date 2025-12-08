@@ -67,16 +67,91 @@ a.hero-contact-item:hover {
 }
 
 
+
 /* SKILLS */
 .skills-container {
+    display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xs);
+    gap: 0.75rem;
+    padding-top: var(--spacing-sm);
+}
+
+.skill-item {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+.skill-icon {
+    /* Mimic the exact look of a text tag but containing an icon */
+    padding: 0.5rem;
+    background-color: var(--color-surface-hover);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-icon svg {
+    /* Icon size relative to tag */
+    width: 20px;
+    height: 20px;
+    transition: all 0.2s ease;
+}
+
+/* Hover Effects */
+.skill-item:hover .skill-icon {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+/* Tooltip (Name) */
+.skill-name {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item:hover .skill-name {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Light Theme Adjustments */
+[data-theme="light"] .skill-icon {
+    background-color: #E7E5E4;
+    /* Neutral grey surface */
+}
+
+[data-theme="light"] .skill-item:hover .skill-icon {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .skills-title {
     margin-bottom: var(--spacing-sm);
 }
-
 
 /* PROJECTS */
 .project-tags {
@@ -141,45 +216,16 @@ a.hero-contact-item:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    opacity: 0.6;
+    transition: transform 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
 .contact-social-icon:hover {
-    transform: scale(1.1);
-}
-
-.social-links {
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
-}
-
-.social-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    transition: all 0.3s ease;
-    color: var(--color-text-muted);
-}
-
-.social-link:hover {
-    background-color: var(--color-surface-hover);
+    opacity: 1;
     color: var(--color-primary);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 }
 
-.social-link svg {
-    transition: transform 0.3s ease;
-}
-
-.social-link:hover svg {
-    transform: scale(1.1);
-}
-
-/* Form Styles */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -187,42 +233,36 @@ a.hero-contact-item:hover {
 }
 
 .form-group {
-    margin-bottom: -34px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .form-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--color-text);
-    font-size: 0.95rem;
-    margin-top: 2.4rem;
 }
 
 .form-input,
 .form-textarea {
     width: 100%;
-    padding: 0.875rem 1rem;
-    background-color: var(--color-surface);
-    border: 2px solid var(--color-border);
+    padding: 1rem;
     border-radius: var(--radius-md);
+    background-color: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
     color: var(--color-text);
-    font-family: var(--font-family);
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1rem;
-    transition: all 0.2s ease;
-    outline: none;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: var(--color-text-muted);
-    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
 }
 
 .form-textarea {
@@ -231,17 +271,26 @@ a.hero-contact-item:hover {
     line-height: 1.6;
 }
 
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
 .form-error {
     display: block;
-    margin-top: var(--spacing-xs);
+    margin-top: 0;
     color: #EF4444;
     font-size: 0.875rem;
-    min-height: 1.25rem;
+    min-height: 0;
+    padding-top: 2px;
 }
 
 .form-button {
     width: 100%;
-    margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
     padding: 1rem;
     font-size: 1rem;
     font-weight: 600;
@@ -356,9 +405,33 @@ a.hero-contact-item:hover {
 }
 
 #contact {
-    scroll-margin-top: 46px;
+    scroll-margin-top: 70px;
 }
 
+
+/* ========================================
+   SCROLL OFFSETS (Desktop Defaults)
+   ======================================== */
+#about,
+#certifications {
+    scroll-margin-top: 100px;
+}
+
+#experience {
+    scroll-margin-top: 110px;
+}
+
+#education {
+    scroll-margin-top: 90px;
+}
+
+#projects {
+    scroll-margin-top: 80px;
+}
+
+#contact {
+    scroll-margin-top: 70px;
+}
 
 /* ========================================
    RESPONSIVE SECTIONS
@@ -371,6 +444,7 @@ a.hero-contact-item:hover {
     .hero-content {
         text-align: center;
         margin: 0 auto;
+        margin-left: 0;
     }
 
     .hero-content h1,
@@ -388,14 +462,14 @@ a.hero-contact-item:hover {
         flex-wrap: wrap;
     }
 
-    /* Scroll Offsets Mobile */
+    /* Scroll Offsets Mobile Override */
     #about,
     #certifications {
         scroll-margin-top: 70px;
     }
 
     #contact {
-        scroll-margin-top: 55px;
+        scroll-margin-top: 40px;
     }
 
     #experience {
@@ -412,39 +486,28 @@ a.hero-contact-item:hover {
 
     /* Form Adjustments Mobile */
     .contact-section {
-        padding: 40px 10px;
-        /* Maximize width */
+        padding: 50px 10px;
     }
 
     .contact-form {
         padding: 0;
-        width: 97%;
+        width: 100%;
         max-width: 100%;
     }
 
-    .contact-form .form-group {
-        margin-bottom: -20px;
+    .timeline {
+        margin-left: 0.5rem;
     }
 
-    .contact-form .form-label {
-        margin-bottom: 2px;
-        margin-top: 20px;
-        /* Move label closer to input */
+    .timeline-item {
+        margin-left: 1.5rem;
     }
+}
 
-    .form-input,
-    .form-textarea {
-        font-size: 16px;
-        width: 100%;
-    }
+/* Tablet Grid Override */
+@media (min-width: 768px) and (max-width: 1024px) {
 
-    /* Reset manual adjustments that might break grid */
-    #contact-form button[type='submit'] {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    /* Equal height cards override */
+    /* Equal height cards override for tablet */
     #certifications .grid-cols-2,
     #experience .grid-cols-2,
     #education .grid-cols-2 {

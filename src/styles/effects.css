@@ -1,0 +1,45 @@
+/* ========================================
+   VISUAL EFFECTS
+   ======================================== */
+
+/* Mouse Spotlight Effect */
+.spotlight {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(59, 130, 246, 0.10),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease, background 0.3s ease;
+}
+
+/* Show spotlight when mouse moves */
+body.has-mouse-moved .spotlight {
+    opacity: 1;
+}
+
+/* SMART HOVER: Reduce intensity when hovering interactive elements and content cards */
+/* This ensures the content is the hero while maintaining the effect */
+body:has(a:hover, button:hover, input:hover, textarea:hover, .btn:hover, .card:hover, .social-link:hover, .cert-card:hover) .spotlight {
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .spotlight {
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(59, 130, 246, 0.15),
+            transparent 40%);
+}
+
+/* Light Mode */
+[data-theme="light"] .spotlight {
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(37, 99, 235, 0.15),
+            transparent 40%);
+}
