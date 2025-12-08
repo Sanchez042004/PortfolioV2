@@ -120,5 +120,5 @@ Ingeniero de Sistemas | Desarrollador | Analista de Datos
 
 ---
 <div align="center">
-Hecho con ❤️ y código limpio
+Hecho con ❤️ por Andrés Sánchez
 </div>
