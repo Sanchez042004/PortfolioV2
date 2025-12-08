@@ -1465,9 +1465,12 @@ a.hero-contact-item:hover {
 
 
     /* Make mobile nav a flex container to push copyright to bottom */
+    /* Make mobile nav a flex container to push copyright to bottom */
     .mobile-nav {
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
+        /* Allow scrolling */
     }
 
     /* ========================================
@@ -1485,7 +1488,8 @@ a.hero-contact-item:hover {
         border-radius: 24px 24px 0 0;
         background-color: var(--color-surface);
         border-top: 1px solid var(--color-primary);
-        padding: 2.5rem 1.5rem 2rem;
+        padding: 2.5rem 1.5rem 5rem;
+        /* Increased padding */
         display: flex;
         flex-direction: column;
         gap: 0.75rem;

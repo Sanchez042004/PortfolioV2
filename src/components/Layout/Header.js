@@ -168,6 +168,45 @@ export const setupHeaderListeners = (renderCallback) => {
       mobileDropdown.classList.toggle('active')
     })
 
+    // Swipe down to close logic
+    let touchStartY = 0
+    let touchCurrentY = 0
+
+    mobileDropdown.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY
+    }, { passive: true })
+
+    mobileDropdown.addEventListener('touchmove', (e) => {
+      touchCurrentY = e.touches[0].clientY
+      const diff = touchCurrentY - touchStartY
+
+      // If pulling down, transform the sheet
+      if (diff > 0) {
+        mobileDropdown.style.transform = `translateY(${diff}px)`
+        mobileDropdown.style.transition = 'none'
+      }
+    }, { passive: true })
+
+    mobileDropdown.addEventListener('touchend', (e) => {
+      touchCurrentY = e.changedTouches[0].clientY
+      const diff = touchCurrentY - touchStartY
+
+      // Reset transition
+      mobileDropdown.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease'
+
+      // If pulled down more than 100px, close it
+      if (diff > 100) {
+        mobileDropdown.classList.remove('active')
+        // Clean up style after animation
+        setTimeout(() => {
+          mobileDropdown.style.transform = ''
+        }, 200)
+      } else {
+        // Otherwise snap back to open
+        mobileDropdown.style.transform = ''
+      }
+    })
+
     // Handle mobile language option clicks
     mobileOptions.forEach(option => {
       const newOption = option.cloneNode(true)
