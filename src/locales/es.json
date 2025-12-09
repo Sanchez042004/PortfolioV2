@@ -2,7 +2,7 @@
     "nav": {
         "about": "Perfil",
         "experience": "Experiencia",
-        "education": "Educación",
+        "education": "Educación y Cert.",
         "projects": "Proyectos",
         "contact": "Contacto"
     },
@@ -44,21 +44,24 @@
             }
         ]
     },
+    "education_certifications": {
+        "title": "Educación y Certificaciones"
+    },
     "certifications": {
         "title": "Otros Estudios",
         "viewCertificate": "Ver Certificado",
         "items": [
             {
-                "name": "Curso Profesional en Desarrollo Web",
-                "issuer": "Código Facilito",
-                "year": "2022",
-                "pdf": "/certificates/Certificado Desarrollo Web.pdf"
+                "name": "Data Analytics Essentials",
+                "issuer": "Cisco Networking Academy",
+                "year": "2025",
+                "pdf": "/certificates/Certificado Curso Data Analytics Essentials.pdf"
             },
             {
-                "name": "Analítica de ventas para la toma de decisiones con Power BI",
-                "issuer": "Coursera",
-                "year": "2023",
-                "pdf": "/certificates/Certificado Analítica de ventas para la toma de decisiones con PowerBI.pdf"
+                "name": "EF Set Certificate B2",
+                "issuer": "EF Set",
+                "year": "2025",
+                "pdf": "/certificates/EF SET Certificate.pdf"
             },
             {
                 "name": "Power BI para Business Intelligence",
@@ -67,25 +70,22 @@
                 "pdf": "/certificates/Certificado Power BI para Business Intelligence.pdf"
             },
             {
-                "name": "NDG Linux Essentials",
-                "issuer": "Cisco Networking Academy",
+                "name": "Curso Profesional en Desarrollo Web",
+                "issuer": "Código Facilito",
                 "year": "2022",
-                "pdf": "/certificates/Certificado Curso Linux.pdf"
-            },
-            {
-                "name": "EF Set Certificate B2",
-                "issuer": "EF Set",
-                "year": "2025",
-                "pdf": "/certificates/EF SET Certificate.pdf"
+                "pdf": "/certificates/Certificado Desarrollo Web.pdf"
             }
         ]
     },
     "projects": {
         "title": "Proyectos",
         "viewProject": "Ver Proyecto",
+        "viewCode": "Ver Código",
         "items": [
             {
                 "title": "Animal Trip",
+                "image": "/projects/AnimalTrip.jpg",
+                "imageStyle": "object-position: 100% 80%;",
                 "description": "Prototipo de aplicación que gestiona viajes seguros y brinda acompañamiento veterinario integral para mascotas en transporte aéreo y terrestre.",
                 "tags": [
                     "Java",
@@ -98,6 +98,7 @@
             },
             {
                 "title": "Heart & Diabetes ML",
+                "image": "/projects/HeartML.jpg",
                 "description": "Modelo de Machine Learning enfocado en analizar conjuntos de datos clínicos para detectar patrones de diabetes y enfermedades cardíacas.",
                 "tags": [
                     "Python",
@@ -111,6 +112,7 @@
             },
             {
                 "title": "Análisis Estratégico del Blackjack",
+                "image": "/projects/Blackjack.jpg",
                 "description": "Minería de datos aplicada al Blackjack para extraer patrones de juego y generar estrategias óptimas de toma de decisiones.",
                 "tags": [
                     "R",

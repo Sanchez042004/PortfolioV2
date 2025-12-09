@@ -26,9 +26,8 @@ import { Footer } from './components/Layout/Footer.js'
 import { Hero } from './components/Sections/Hero.js'
 import { About } from './components/Sections/About.js'
 import { Experience } from './components/Sections/Experience.js'
-import { Education } from './components/Sections/Education.js'
+import { EducationAndCertifications } from './components/Sections/EducationAndCertifications.js'
 import { Projects } from './components/Sections/Projects.js'
-import { Certifications } from './components/Sections/Certifications.js'
 import { Contact } from './components/Sections/Contact.js'
 import { Modal, openModal, closeModal } from './components/UI/Modal.js'
 import { Spotlight } from './components/UI/Spotlight.js'
@@ -46,8 +45,7 @@ const render = () => {
       ${Hero()}
       ${About()}
       ${Experience()}
-      ${Education()}
-      ${Certifications()}
+      ${EducationAndCertifications()}
       ${Projects()}
       ${Contact()}
     </main>

@@ -518,3 +518,14 @@
         height: 16px;
     }
 }
+/* Better contrast for outline buttons in light mode */
+[data-theme="light"] .btn-outline {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
