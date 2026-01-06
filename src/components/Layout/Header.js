@@ -40,8 +40,8 @@ export const Header = (isMenuOpen = false) => {
                     ${ICONS.TERMINAL}
                 </div>
                 <div class="logo-text">
-                    <span class="logo-title">&gt;_ AS_SYSTEM</span>
-                    <span class="logo-subtitle">v2.4.0-stable</span>
+                    <span class="logo-title">&gt;_ING_ANDRES</span>
+                    <span class="logo-subtitle">Portfolio Web</span>
                 </div>
             </div>
         </a>
