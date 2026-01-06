@@ -103,7 +103,7 @@
         "items": [
             {
                 "title": "Animal Trip",
-                "image": "/projects/AnimalTrip.webp",
+                "image": "/projects/AnimalTrip.avif",
                 "imageStyle": "object-position: 100% 80%;",
                 "description": "Protótipo funcional de aplicativo que oferece viagens seguras e acompanhamento veterinário para animais de estimação em aviões ou ônibus.",
                 "tags": [
@@ -118,7 +118,7 @@
             },
             {
                 "title": "Heart & Diabetes ML",
-                "image": "/projects/HeartML.webp",
+                "image": "/projects/HeartML.avif",
                 "description": "Projeto de Machine Learning encarregado de extrair dados abertos sobre diabetes e doenças cardíacas para análise.",
                 "tags": [
                     "Python",
@@ -133,7 +133,7 @@
             },
             {
                 "title": "Análise Estratégica do Blackjack",
-                "image": "/projects/Blackjack.webp",
+                "image": "/projects/Blackjack.avif",
                 "description": "Projeto que aplica mineração de dados para analisar partidas de Blackjack em cassinos, extraindo padrões e gerando estratégias para otimizar as decisões durante o jogo.",
                 "tags": [
                     "R",
