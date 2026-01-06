@@ -207,9 +207,8 @@
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--color-border);
-    background-size: 120%;
-    background-position: center 30%;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center 30%;
     background-color: #1a1f2e;
 }
 

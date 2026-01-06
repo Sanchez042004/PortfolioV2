@@ -28,11 +28,19 @@ export const Hero = () => {
             <div class="hero-bg-pattern"></div>
 
             <!-- Avatar Column -->
-            <div class="hero-profile-col">
+                <div class="hero-profile-col">
                      <div class="profile-glow-container">
                         <div class="profile-glow"></div>
                         <div class="profile-image-wrapper">
-                            <div class="profile-image" style="background-image:url('${data.profile.avatar}');"></div>
+                            <img 
+                                src="${data.profile.avatar}" 
+                                alt="${data.profile.name}" 
+                                class="profile-image" 
+                                width="192" 
+                                height="192"
+                                fetchpriority="high"
+                                decoding="sync"
+                            >
                         </div>
                          <div class="status-indicator-wrapper">
                             <span class="status-ping"></span>

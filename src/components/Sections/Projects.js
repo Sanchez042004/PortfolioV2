@@ -16,6 +16,8 @@ export const Projects = () => {
           alt="${project.title}"
           class="project-card-image-v2"
           style="${project.imageStyle || ''}"
+          width="400"
+          height="150"
           onerror="this.src='/projects/placeholder.webp'"
           decoding="async"
           ${index > 0 ? 'loading="lazy"' : ''}
