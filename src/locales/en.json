@@ -192,7 +192,7 @@
         }
     },
     "footer": {
-        "copyright": "© {{year}} {{name}}"
+        "copyright": "{{year}} {{name}}"
     },
     "themes": {
         "light": "Light Theme",

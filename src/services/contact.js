@@ -93,7 +93,10 @@ export const setupContactForm = async () => {
                 .replace(/\[\s*OK\s*\]/g, '<span class="log-ok">[ OK ]</span>')
                 .replace(/\[\s*INFO\s*\]/g, '<span class="log-info">[ INFO ]</span>'), 'success')
 
-            form.reset()
+            // Explicitly clear form fields
+            document.getElementById('contact-name').value = ''
+            document.getElementById('contact-email').value = ''
+            document.getElementById('contact-message').value = ''
 
         } catch (error) {
             console.error('Submission failed:', error)
