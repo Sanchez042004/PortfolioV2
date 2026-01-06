@@ -2,11 +2,10 @@ import i18next from 'i18next'
 import esTranslations from '../locales/es.json' with { type: 'json' }
 import enTranslations from '../locales/en.json' with { type: 'json' }
 import ptTranslations from '../locales/pt.json' with { type: 'json' }
+import { EVENTS, dispatchEvent } from '../core/events.js'
 
 /**
  * Initialize i18next library with language resources
- * @async
- * @returns {Promise<void>}
  */
 export const initI18next = async () => {
     if (!i18next.isInitialized) {
@@ -23,20 +22,16 @@ export const initI18next = async () => {
 }
 
 /**
- * Get the saved language from localStorage
- * @returns {string} Language code (es, en, or pt)
- */
-export const getSavedLanguage = () => localStorage.getItem('language') || 'es'
-
-/**
  * Change the application language
  * @param {string} lang - Language code (es, en, or pt)
- * @param {Function} onLanguageChanged - Callback to execute after language change (usually render)
  */
-export const changeLanguage = (lang, onLanguageChanged) => {
+export const changeLanguage = (lang) => {
     i18next.changeLanguage(lang)
     localStorage.setItem('language', lang)
-    if (onLanguageChanged) onLanguageChanged()
+
+    // Notify the rest of the app that language changed
+    // This triggers a re-render in main.js to update the UI
+    dispatchEvent(EVENTS.LANGUAGE_CHANGED, { language: lang })
 }
 
 /**

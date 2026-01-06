@@ -1,210 +1,118 @@
 import { t } from './i18n.js'
-import { sanitizeInput, isValidEmail } from '../utils/helpers.js'
+import { validateContactForm, sanitizeInput } from '../utils/validation.js'
+import { EmailService, ReCaptchaService } from './api.js'
 
 // Rate limiting: Track last submission time
+// Kept in memory (reset on refresh) to prevent accidental spam in a single session.
+// For stricter persistence, use localStorage or cookies.
 let lastSubmissionTime = 0
-const RATE_LIMIT_MS = 60000 // 1 minute between submissions
+const RATE_LIMIT_MS = 60000 // 1 minute
 
 /**
- * Load reCAPTCHA script dynamically
- * @returns {Promise<boolean>} True if loaded successfully
- */
-export const loadRecaptcha = () => {
-    return new Promise((resolve, reject) => {
-        const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
-        if (!siteKey) {
-            resolve(false)
-            return
-        }
-        // Check if already loaded
-        if (window.grecaptcha) {
-            resolve(true)
-            return
-        }
-        const script = document.createElement('script')
-        script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
-        script.async = true
-        script.defer = true
-        script.onload = () => resolve(true)
-        script.onerror = () => reject(new Error('Failed to load reCAPTCHA'))
-        document.head.appendChild(script)
-    })
-}
-
-/**
- * Get reCAPTCHA token
- * @returns {Promise<string|null>} reCAPTCHA token or null
- */
-export const getRecaptchaToken = async () => {
-    const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
-    if (!siteKey || !window.grecaptcha) {
-        return null
-    }
-    try {
-        const token = await window.grecaptcha.execute(siteKey, { action: 'submit' })
-        return token
-    } catch (error) {
-        return null
-    }
-}
-
-/**
- * Setup contact form with EmailJS integration
- * Handles form submission, validation, and user feedback
- * Includes rate limiting, input sanitization, and reCAPTCHA
+ * Setup contact form integration
+ * Handles UI interactions, validation feedback, and delegates to services
  */
 export const setupContactForm = async () => {
     const form = document.getElementById('contact-form')
     if (!form) return
 
-    // Initialize EmailJS with Public Key from environment variables
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // Initialize services
+    EmailService.init()
 
-    // Validate that environment variables are loaded
-    if (!PUBLIC_KEY) {
-        return
-    }
-
-    // Use window.emailjs if available (loaded via CDN)
-    if (window.emailjs) {
-        window.emailjs.init(PUBLIC_KEY)
-    }
-
-    // Load reCAPTCHA
     try {
-        await loadRecaptcha()
+        await ReCaptchaService.load()
     } catch (error) {
-        // reCAPTCHA failed to load, continue without it
+        // Soft fail: allow form to load even if ReCaptcha block/fails (e.g. adblockers)
+        // Validation might fail server-side if token is mandatory there, but UI shouldn't crash.
+        console.warn('ReCaptcha failed to load, continuing without it.')
     }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
-        // Get form elements
-        const nameInput = document.getElementById('contact-name')
-        const emailInput = document.getElementById('contact-email')
-        const messageInput = document.getElementById('contact-message')
-        const submitBtn = document.getElementById('submit-btn')
-        const formMessage = document.getElementById('form-message')
 
-        // Clear previous errors
+        // UI Elements
+        const formMessage = document.getElementById('form-message')
+        const submitBtn = document.getElementById('submit-btn')
+        const originalBtnText = submitBtn.textContent
+
+        // Reset UI
         document.querySelectorAll('.form-error').forEach(el => el.textContent = '')
         formMessage.textContent = ''
         formMessage.className = 'form-message'
 
-        // Rate limiting check
+        // 1. Rate Limiting Check
         const now = Date.now()
         const timeSinceLastSubmission = now - lastSubmissionTime
 
         if (lastSubmissionTime > 0 && timeSinceLastSubmission < RATE_LIMIT_MS) {
             const remainingSeconds = Math.ceil((RATE_LIMIT_MS - timeSinceLastSubmission) / 1000)
-            formMessage.textContent = t('contact.form.rateLimitError', { seconds: remainingSeconds })
-            formMessage.className = 'form-message error'
-            // Scroll to error message
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            showFeedback(formMessage, t('contact.form.rateLimitError', { seconds: remainingSeconds }), 'error')
             return
         }
 
-        // Validate fields
-        let isValid = true
-
-        // Name validation
-        const nameValue = nameInput.value.trim()
-        if (!nameValue) {
-            document.getElementById('name-error').textContent = t('contact.form.required')
-            isValid = false
-        } else if (nameValue.length < 2) {
-            document.getElementById('name-error').textContent = t('contact.form.nameTooShort')
-            isValid = false
-        } else if (nameValue.length > 100) {
-            document.getElementById('name-error').textContent = t('contact.form.nameTooLong')
-            isValid = false
+        // 2. Gather Data
+        const formData = {
+            name: document.getElementById('contact-name').value,
+            email: document.getElementById('contact-email').value,
+            message: document.getElementById('contact-message').value
         }
 
-        // Email validation
-        const emailValue = emailInput.value.trim()
-        if (!emailValue) {
-            document.getElementById('email-error').textContent = t('contact.form.required')
-            isValid = false
-        } else if (!isValidEmail(emailValue)) {
-            document.getElementById('email-error').textContent = t('contact.form.invalidEmail')
-            isValid = false
+        // 3. Validate
+        const { isValid, errors } = validateContactForm(formData, t)
+
+        if (!isValid) {
+            if (errors.name) document.getElementById('name-error').textContent = errors.name
+            if (errors.email) document.getElementById('email-error').textContent = errors.email
+            if (errors.message) document.getElementById('message-error').textContent = errors.message
+            return
         }
 
-        // Message validation
-        const messageValue = messageInput.value.trim()
-        if (!messageValue) {
-            document.getElementById('message-error').textContent = t('contact.form.required')
-            isValid = false
-        } else if (messageValue.length < 10) {
-            document.getElementById('message-error').textContent = t('contact.form.messageTooShort')
-            isValid = false
-        } else if (messageValue.length > 1000) {
-            document.getElementById('message-error').textContent = t('contact.form.messageTooLong')
-            isValid = false
-        }
-
-        if (!isValid) return
-
-        // Show loading state
-        const originalText = submitBtn.textContent
+        // 4. Send
         submitBtn.textContent = t('contact.form.sending')
         submitBtn.disabled = true
 
         try {
-            // Get reCAPTCHA token
-            const recaptchaToken = await getRecaptchaToken()
-
-            // Load credentials from environment variables
-            const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-            const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-
-            // Get current date and time
-            const currentDate = new Date()
-            const timestamp = currentDate.toLocaleString('es-CO', {
-                dateStyle: 'full',
-                timeStyle: 'short',
-                timeZone: 'America/Bogota'
+            const token = await ReCaptchaService.getToken()
+            const timestamp = new Date().toLocaleString('es-CO', {
+                dateStyle: 'full', timeStyle: 'short', timeZone: 'America/Bogota'
             })
 
-            // Sanitize inputs before sending
-            const sanitizedData = {
-                from_name: sanitizeInput(nameValue),
-                from_email: sanitizeInput(emailValue),
-                message: sanitizeInput(messageValue),
+            const emailPayload = {
+                from_name: sanitizeInput(formData.name),
+                from_email: sanitizeInput(formData.email),
+                message: sanitizeInput(formData.message),
                 sent_at: timestamp,
-                recaptcha_token: recaptchaToken || 'not_available'
+                recaptcha_token: token || 'not_available'
             }
 
-            // Send email using EmailJS
-            if (window.emailjs) {
-                await window.emailjs.send(SERVICE_ID, TEMPLATE_ID, sanitizedData)
-            } else {
-                console.error("EmailJS not loaded")
-                throw new Error("EmailJS not loaded")
-            }
+            await EmailService.send(emailPayload)
 
-            // Update last submission time (only on success)
+            // Success
             lastSubmissionTime = Date.now()
+            showFeedback(formMessage, t('contact.form.success')
+                .replace(/\[\s*OK\s*\]/g, '<span class="log-ok">[ OK ]</span>')
+                .replace(/\[\s*INFO\s*\]/g, '<span class="log-info">[ INFO ]</span>'), 'success')
 
-            // Show success message
-            formMessage.textContent = t('contact.form.success')
-            formMessage.className = 'form-message success'
-
-            // Scroll to message
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
-
-            // Clear form
             form.reset()
+
         } catch (error) {
-            console.error(error)
-            formMessage.textContent = t('contact.form.error')
-            formMessage.className = 'form-message error'
-            // Scroll to error message
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            console.error('Submission failed:', error)
+            showFeedback(formMessage, t('contact.form.error')
+                .replace(/\[\s*ERR\s*\]/g, '<span class="log-err">[ ERR ]</span>')
+                .replace(/\[\s*INFO\s*\]/g, '<span class="log-info">[ INFO ]</span>'), 'error')
         } finally {
-            // Restore button state
-            submitBtn.textContent = originalText
+            submitBtn.textContent = originalBtnText
             submitBtn.disabled = false
         }
     })
 }
+
+/**
+ * Helper to show feedback messages and scroll into view
+ */
+const showFeedback = (element, html, type) => {
+    element.innerHTML = html
+    element.className = `form-message ${type}`
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
+

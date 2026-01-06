@@ -1,13 +1,16 @@
+import { CONFIG } from './utils/constants.js'
+
 export const data = {
     profile: {
-        name: import.meta.env.VITE_PROFILE_NAME || 'Tu Nombre',
-        location: import.meta.env.VITE_PROFILE_LOCATION || 'Tu Ciudad, País',
+        name: import.meta.env.VITE_PROFILE_NAME || 'Andrés Sánchez',
+        location: import.meta.env.VITE_PROFILE_LOCATION || 'Bogotá, Colombia',
         social: {
-            email: `mailto:${import.meta.env.VITE_PROFILE_EMAIL || 'tu@email.com'}`,
-            github: import.meta.env.VITE_PROFILE_GITHUB || 'https://github.com/',
-            linkedin: import.meta.env.VITE_PROFILE_LINKEDIN || 'https://linkedin.com/',
-            twitter: import.meta.env.VITE_PROFILE_TWITTER || 'https://twitter.com/'
-        }
+            email: `mailto:${CONFIG.CONTACT_EMAIL}`,
+            github: CONFIG.GITHUB_URL,
+            linkedin: CONFIG.LINKEDIN_URL,
+        },
+        avatar: '/photo.webp',
+        cv: CONFIG.RESUME_PATH
     },
     nav: [
         { href: '#about', label: 'About' },
@@ -16,8 +19,8 @@ export const data = {
         { href: '#projects', label: 'Projects' },
         { href: '#contact', label: 'Contact' }
     ],
-    skills: [
-        'HTML', 'CSS', 'Git', 'Python', 'SQL', 'BigQuery',
-        'Looker', 'Java', 'Office'
-    ]
+    skills: {
+        backend_data: ['Python', 'SQL', 'BigQuery', 'Looker', 'Java'],
+        frontend_tools: ['TypeScript', 'React.js', 'Next.js', 'Tailwind CSS', 'Docker', 'Git']
+    }
 };

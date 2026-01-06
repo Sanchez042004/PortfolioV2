@@ -1,20 +1,25 @@
 ﻿{
     "nav": {
-        "about": "Perfil",
-        "experience": "Experiencia",
-        "education": "Educación y Cert.",
-        "projects": "Proyectos",
-        "contact": "Contacto"
+        "home": "/inicio",
+        "profile": "/perfil",
+        "experience": "/experiencia",
+        "education": "/Educacion_y_Cert",
+        "projects": "/Proyectos",
+        "contact": "/Contacto"
     },
     "profile": {
+        "bio": "Ingeniero de Sistemas con experiencia en análisis de datos y conocimientos en desarrollo de software.",
+        "bio_short": "Construyendo aplicaciones web escalables y analizando datos complejos",
         "role": "Ingeniero de Sistemas, Desarrollador y Analista de datos",
-        "bio": "Ingeniero de Sistemas con experiencia en análisis de datos y conocimientos en desarrollo de software."
+        "status": "Disponible para trabajar",
+        "focus": "Optimización de Procesos",
+        "methods": "Ágile"
     },
     "hero": {
         "greeting": "¡Hola! soy",
-        "viewWork": "Ver Proyectos",
-        "contactMe": "Contáctame",
-        "downloadCV": "Descargar CV"
+        "viewWork": "Ver_Proyectos",
+        "contactMe": "Contactar",
+        "downloadCV": "Descargar_CV"
     },
     "about": {
         "title": "Perfil",
@@ -27,16 +32,29 @@
                 "role": "Practicante de Analista de Datos",
                 "company": "Connect Assistance",
                 "link": "https://www.connect.com.co/",
-                "dates": "Febrero 2020 - Agosto 2025",
+                "dates": "Febrero 2025 - Agosto 2025",
                 "description": [
                     "Desarrollé vistas en BigQuery aplicando SQL para estructurar la lógica de negocio y generar información clave para clientes internos y externos. Además, participé en la migración de dashboards a Looker mediante LookML, implementando prácticas de gobernanza de datos que facilitaron el acceso a indicadores y métricas de gestión. Asimismo, colaboré en el modelado y la documentación de datos, utilizando Git y buenas prácticas orientadas a la escalabilidad y mantenimiento del producto de datos."
+                ],
+                "tags": [
+                    "SQL",
+                    "BigQuery",
+                    "Looker",
+                    "LookML",
+                    "Git"
                 ]
             }
         ]
     },
     "education": {
         "title": "Educación",
+        "sectionTitle": "Historia_Educativa",
         "items": [
+            {
+                "school": "Corporación Universitaria Minuto de Dios",
+                "degree": "Especialización en Desarrollo de Software",
+                "dates": "2025 - Actualidad"
+            },
             {
                 "school": "Corporación Universitaria Minuto de Dios",
                 "degree": "Ingeniería de Sistemas",
@@ -49,6 +67,7 @@
     },
     "certifications": {
         "title": "Otros Estudios",
+        "sectionTitle": "Certificados_Activos",
         "viewCertificate": "Ver Certificado",
         "items": [
             {
@@ -86,7 +105,7 @@
                 "title": "Animal Trip",
                 "image": "/projects/AnimalTrip.webp",
                 "imageStyle": "object-position: 100% 80%;",
-                "description": "Prototipo de aplicación que gestiona viajes seguros y brinda acompañamiento veterinario integral para mascotas en transporte aéreo y terrestre.",
+                "description": "Prototipo funcional de aplicación que gestiona viajes seguros y brinda acompañamiento veterinario para mascotas en transporte aéreo o terrestre.",
                 "tags": [
                     "Java",
                     "SQL Server",
@@ -94,6 +113,7 @@
                     "Mascotas"
                 ],
                 "dates": "Febrero 2023 - Junio 2023",
+                "status": "BETA",
                 "link": "https://github.com/Sanchez042004/animal-trip"
             },
             {
@@ -108,6 +128,7 @@
                     "Scikit Learn"
                 ],
                 "dates": "Abril 2024 - Junio 2024",
+                "status": "V1.0",
                 "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
             },
             {
@@ -122,28 +143,44 @@
                     "Análisis de Datos"
                 ],
                 "dates": "Agosto 2024 - Noviembre 2024",
+                "status": "LIVE",
                 "link": "https://github.com/Sanchez042004/blackjack-analysis"
             }
         ]
     },
     "skills": {
-        "title": "Habilidades"
+        "title": "Habilidades",
+        "technical": "tecnico",
+        "technical_list": [
+            "Python",
+            "React",
+            "SQL",
+            "Docker"
+        ],
+        "soft_skills": "habilidades_blandas",
+        "focus": "enfoque",
+        "soft_skills_list": [
+            "Proactividad",
+            "Comunicación",
+            "Trabajo en Equipo"
+        ],
+        "focus_value": "Desarrollo Full Stack"
     },
     "contact": {
         "title": "Contacto",
-        "description": "Estoy disponible para proyectos y oportunidades laborales. ¡Escríbeme!",
+        "description": "¿Tienes un proyecto en mente? Inicia una solicitud de conexión a continuación.",
         "sayHello": "Enviar Correo",
         "form": {
-            "name": "Nombre",
-            "namePlaceholder": "Tu nombre completo",
-            "email": "Correo Electrónico",
-            "emailPlaceholder": "tu@email.com",
-            "message": "Mensaje",
+            "name": "NOMBRE",
+            "namePlaceholder": "Ingresa tu nombre...",
+            "email": "CORREO_ELECTRÓNICO",
+            "emailPlaceholder": "Ingresa tu correo...",
+            "message": "MENSAJE",
             "messagePlaceholder": "Escribe tu mensaje aquí...",
-            "send": "Enviar Mensaje",
+            "send": "./send_message.sh",
             "sending": "Enviando...",
-            "success": "¡Mensaje enviado exitosamente! Te responderé pronto.",
-            "error": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.",
+            "success": "[ OK ] Sistema: Mensaje enviado con éxito.\n[ INFO ] Feedback: Me pondré en contacto pronto.",
+            "error": "[ ERR ] Sistema: Fallo en la transmisión.\n[ INFO ] Acción: Inténtalo de nuevo más tarde.",
             "required": "Este campo es requerido",
             "invalidEmail": "Por favor, ingresa un correo válido",
             "rateLimitError": "Por favor espera {{seconds}} segundos antes de enviar otro mensaje",
@@ -155,11 +192,29 @@
         }
     },
     "footer": {
-        "copyright": "© {{year}} {{name}}"
+        "copyright": "{{year}} {{name}}"
     },
     "themes": {
         "light": "Tema Claro",
         "dark": "Tema Oscuro",
         "system": "Tema del Sistema"
+    },
+    "terminal": {
+        "user_sys": "user@sys",
+        "user_admin": "admin@server",
+        "hero_path": "usr/bin/perfil --modo-vista",
+        "hero_scroll": "cd ./perfil",
+        "hero_focus": "Modo_Optimización",
+        "exp_path": "usr/bin/experiencia --linea-tiempo",
+        "exp_cat": "cat ./historial_experiencia.history",
+        "edu_path": "usr/bin/edu --modo-vista",
+        "edu_cat": "cat ./educacion_y_certificados.json",
+        "contact_path": "admin@server:~/contactame/redactar",
+        "contact_branding": "<Ponte_En_Contacto />",
+        "about_path": "sys/info --detallado",
+        "about_cat": "cat ./perfil.json",
+        "about_list_backend": "list --datos-backend",
+        "about_list_frontend": "list --herramientas-frontend",
+        "scroll_top": "[^_inicio]"
     }
 }

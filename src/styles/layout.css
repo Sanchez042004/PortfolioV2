@@ -2,77 +2,350 @@
    HEADER & NAVIGATION
    ======================================== */
 .header {
-    position: fixed;
+    position: sticky;
+    /* Changed from fixed to sticky as per reference */
     top: 0;
-    left: 0;
     width: 100%;
-    height: var(--header-height);
     z-index: 100;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 23, 42, 0.8);
     border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    z-index: -1;
-    transition: background-color 0.3s ease;
+    background-color: rgba(13, 17, 23, 0.9);
+    /* Dark default */
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    transition: border-color 0.2s, background-color 0.2s;
 }
 
-[data-theme="light"] .header::before {
-    background-color: rgba(248, 250, 252, 0.8);
+[data-theme="light"] .header {
+    background-color: rgba(240, 246, 252, 0.9);
+    /* Light default */
+}
+
+/* Remove old pseudo-element backdrop since we use background-color rgba on parent */
+.header::before {
+    display: none;
 }
 
 .header-content {
-    height: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0.75rem var(--spacing-md);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-left: -15px;
+/* Logo Area */
+.header-logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
 }
 
-.desktop-nav {
+.header-logo-section {
     display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    color: var(--color-primary);
+    background-color: rgba(13, 204, 242, 0.1);
+    border: 1px solid rgba(13, 204, 242, 0.2);
+    padding: 0.375rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text);
+    letter-spacing: -0.025em;
+    font-family: var(--font-display);
+}
+
+.logo-subtitle {
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+/* Desktop Navigation (Center Pill) */
+.desktop-nav {
+    display: none;
+    /* hidden on mobile */
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        background-color: var(--color-surface);
+        /* bg-slate-200 / dark:bg-[#161b22] */
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
 }
 
 .nav-link {
-    font-size: 0.9rem;
+    padding: 0.375rem 1rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-family: var(--font-mono);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-surface-hover);
+}
+
+[data-theme="light"] .nav-link:hover {
+    background-color: #ffffff;
+    /* hover:bg-white */
+}
+
+/* Header Controls (Right) */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Language Selector */
+.lang-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .desktop-only {
+        display: flex;
+    }
+}
+
+/* Hide main theme toggle and lang selector on mobile, show only in menu */
+@media (max-width: 767px) {
+
+    .header-controls>.theme-toggle,
+    .header-controls>.lang-selector {
+        display: none !important;
+    }
+}
+
+.lang-toggle {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+    color: var(--color-primary);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background-color: #0d1117;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+    min-width: 120px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .lang-dropdown {
+    background-color: #ffffff;
+}
+
+.lang-dropdown.active {
+    display: block;
+}
+
+.lang-option {
+    padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    font-family: var(--font-mono);
     position: relative;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-link.active {
+.lang-option.active {
     color: var(--color-primary);
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-weight: 700;
 }
 
-.nav-link.active::after {
-    width: 100%;
+.lang-option.active::before {
+    content: '•';
+    position: absolute;
+    left: 0.75rem;
+    color: var(--color-primary);
+}
+
+.lang-option:hover {
+    color: var(--color-primary);
+    background-color: var(--color-surface-hover);
+}
+
+[data-theme="light"] .lang-option:hover {
+    background-color: #f6f8fa;
+}
+
+/* Mobile Lang Selector specific */
+.mobile-nav .lang-selector {
+    width: auto;
+    /* Allow it to sit next to theme toggle */
+    justify-content: center;
+}
+
+/* Style the mobile language toggle button better */
+.mobile-nav .lang-selector .lang-toggle {
+    background-color: var(--color-surface-hover);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    /* Pill shape */
+    font-weight: 500;
+}
+
+.mobile-nav .lang-dropdown {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    border-radius: 20px 20px 0 0;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.3s;
+    display: block;
+    visibility: hidden;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000 !important;
+    /* Higher than backdrop to ensure it's on top */
+}
+
+[data-theme="light"] .mobile-nav .lang-dropdown,
+[data-theme="light"] .mobile-lang-dropdown-fixed {
+    background-color: #ffffff;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav .lang-dropdown.active,
+.mobile-lang-dropdown-fixed.active {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile dropdown when outside header (fixes containing block issue) */
+.mobile-lang-dropdown-fixed {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    border-radius: 20px 20px 0 0;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.3s;
+    display: block;
+    visibility: hidden;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000 !important;
+}
+
+.mobile-lang-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    /* Below the dropdown */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(7px);
+}
+
+.mobile-lang-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav .lang-option,
+.mobile-lang-dropdown-fixed .lang-option {
+    padding: 1rem;
+    font-size: 1.15rem;
+    /* Slightly smaller than before */
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-nav .lang-option:last-child,
+.mobile-lang-dropdown-fixed .lang-option:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav .lang-option.active,
+.mobile-lang-dropdown-fixed .lang-option.active {
+    color: var(--color-primary);
+    background-color: var(--color-surface-hover);
+    font-weight: 700;
+    border-radius: 12px;
+    border-bottom: none;
+    margin-bottom: 4px;
+}
+
+/* Remove dot completely for mobile */
+.mobile-nav .lang-option.active::before,
+.mobile-lang-dropdown-fixed .lang-option.active::before {
+    content: none;
 }
 
 /* ========================================
@@ -89,6 +362,8 @@
     justify-content: center;
 }
 
+/* ... menu toggle checkbox styles ... */
+/* Retain existing styles for checkbox/hamburger */
 .menu-toggle-checkbox {
     position: absolute;
     top: 0;
@@ -196,7 +471,7 @@
 
 .mobile-nav-list .nav-link {
     display: block;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) 1rem;
     font-size: 1.1rem;
     color: var(--color-text);
     border-bottom: 1px solid var(--color-border);
@@ -206,10 +481,13 @@
     margin-top: var(--spacing-lg);
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-sm);
+    gap: 1rem;
+    /* increased gap */
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    /* Perfectly centered now */
+    margin-right: 0;
+    /* Removed offset */
 }
 
 .mobile-copyright {
@@ -224,13 +502,25 @@
    ======================================== */
 .footer {
     border-top: 1px solid var(--color-border);
-    padding: var(--spacing-md) 0;
-    margin-top: -15px;
+    padding: 1rem 1rem;
+    margin-top: 2rem;
 }
 
 .footer-content {
     color: var(--color-text-muted);
     font-size: 0.9rem;
+}
+
+.footer .container {
+    max-width: 600px;
+    /* Make it narrower */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    /* Enforce flex */
+    justify-content: center;
+    /* Enforce horizontal center */
+    align-items: center;
 }
 
 /* ========================================
@@ -239,6 +529,17 @@
 @media (max-width: 767px) {
     .logo {
         margin-left: 0px;
+    }
+
+    /* Restore backdrop-filter for blur effect on mobile */
+    .header {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background-color: rgba(13, 17, 23, 0.9);
+    }
+
+    [data-theme="light"] .header {
+        background-color: rgba(240, 246, 252, 0.9);
     }
 
     .mobile-menu-wrapper {
@@ -261,5 +562,57 @@
 @media (min-width: 1025px) {
     .mobile-menu-wrapper {
         display: none;
+    }
+}
+
+/* ========================================
+   SCROLL OFFSETS (Scroll Margin)
+   ======================================== */
+#about,
+#certifications {
+    scroll-margin-top: 60px;
+}
+
+#profile {
+    scroll-margin-top: 30px;
+}
+
+#education {
+    scroll-margin-top: 70px;
+}
+
+#projects {
+    scroll-margin-top: 70px;
+}
+
+#contact {
+    scroll-margin-top: 60px;
+}
+
+@media (max-width: 767px) {
+
+    #about,
+    #certifications {
+        scroll-margin-top: 60px;
+    }
+
+    #profile {
+        scroll-margin-top: 60px;
+    }
+
+    #education {
+        scroll-margin-top: 80px;
+    }
+
+    #projects {
+        scroll-margin-top: 80px;
+    }
+
+    #contact {
+        scroll-margin-top: 60px;
+    }
+
+    #experience {
+        scroll-margin-top: 80px;
     }
 }

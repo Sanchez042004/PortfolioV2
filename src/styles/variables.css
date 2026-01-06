@@ -3,59 +3,134 @@
    ======================================== */
 :root {
     /* Typography */
-    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family: 'JetBrains Mono', monospace;
+    /* Base font is now Mono */
+    --font-display: 'Space Grotesk', sans-serif;
+    /* Headlines */
     --line-height-base: 1.6;
     --line-height-tight: 1.2;
 
     /* Spacing Scale */
-    --spacing-xs: 0.5rem;
+    --spacing-xs: 0.25rem;
+    /* 4px */
+    --spacing-sm: 0.5rem;
     /* 8px */
-    --spacing-sm: 1rem;
+    --spacing-md: 1rem;
     /* 16px */
-    --spacing-md: 2rem;
-    /* 32px */
-    --spacing-lg: 4rem;
-    /* 64px */
-    --spacing-xl: 8rem;
-    /* 128px */
+    --spacing-lg: 1.5rem;
+    /* 24px */
+    --spacing-xl: 3rem;
+    /* 48px */
 
     /* Layout */
-    --container-width: 1200px;
-    --header-height: 80px;
+    --container-width: 1300px;
+    /* matched user preference for wide layout */
+    --header-height: 70px;
+    /* Approx based on py-3 */
 
     /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 16px;
+    --radius-sm: 0.25rem;
+    /* 4px - rounded */
+    --radius-md: 0.5rem;
+    /* 8px - rounded-lg */
+    --radius-lg: 0.75rem;
+    /* 12px - rounded-xl */
+    --radius-full: 9999px;
 
-    /* Dark Mode Colors (Default) */
-    --color-primary: #3B82F6;
-    --color-primary-hover: #60A5FA;
-    --color-secondary: #94A3B8;
-    --color-bg: #0F172A;
-    --color-surface: #1E293B;
-    --color-surface-hover: #334155;
-    --color-text: #F1F5F9;
-    --color-text-muted: #CBD5E1;
-    --color-border: #334155;
+    /* Effects */
+    --shadow-glow: 0 0 10px rgba(13, 204, 242, 0.15);
+    --shadow-glow-strong: 0 0 20px rgba(13, 204, 242, 0.25);
+
+    /* Dark Mode Colors (Default) - Based on reference 'dark' classes */
+    --color-primary: #0dccf2;
+    --color-secondary: #2ea043;
+    --color-accent-blue: #58a6ff;
+    --color-accent-cyan: #39c5cf;
+
+    --color-bg: #0d1117;
+    /* dark:bg-[#0d1117] */
+    --color-bg-inset: #010409;
+    /* darker backgrounds */
+
+    --color-surface: #161b22;
+    /* dark:bg-[#161b22] */
+    --color-surface-hover: #21262d;
+
+    --color-text: #c9d1d9;
+    /* dark:text-[#c9d1d9] */
+    --color-text-muted: #8b949e;
+    /* dark:text-[#8b949e] */
+
+    --color-border: #30363d;
+    /* dark:border-[#30363d] */
+
+    /* Terminal Window Tokens (Centralized to avoid hardcoding) */
+    --color-terminal-header: #0d1117;
+    --color-terminal-body: #161b22;
+    --color-terminal-prompt: var(--color-primary);
+    --color-terminal-cursor: var(--color-primary);
+
+    /* Badge & Tag Tokens */
+    --color-badge-bg: rgba(13, 204, 242, 0.1);
+    --color-badge-border: rgba(13, 204, 242, 0.2);
+    --color-badge-text: var(--color-primary);
+
+    /* Syntax Highlighting (Dark - GitHub style) */
+    --syntax-keyword: #ff7b72;
+    --syntax-property: #e6edf3;
+    --syntax-string: #a5d6ff;
+    --syntax-operator: #ff7b72;
+    --syntax-comment: #8b949e;
+    --syntax-obj-key: #ffa657;
+    --syntax-boolean: #79c0ff;
 }
 
-/* Light Mode Color Overrides */
+/* Light Mode Overrides: "Light Terminal" Aesthetic */
+/* Explicitly increased specificity with html[data-theme] */
+html[data-theme="light"],
 [data-theme="light"] {
-    /* Colores Primarios */
-    --color-primary: #2563EB;
-    /* Ajuste fino para modo claro inspirado en LinkedIn/Notion */
-    --color-primary: #0A66C2;
-    --color-primary-hover: #004182;
-    --color-secondary: #71767B;
+    --color-primary: #0550ae;
+    /* Deeper blue for real contrast */
+    --color-secondary: #116329;
+    /* Deeper green */
+    --color-accent-blue: #0969da;
+    --color-accent-cyan: #075f66;
 
-    /* Fondos */
-    --color-bg: #F5F5F4;
-    --color-surface: #FAFAF9;
-    --color-surface-hover: #F0F0EE;
+    --color-bg: #f6f8fa;
+    /* Soft gray-white (macOS style) */
+    --color-bg-inset: #ffffff;
 
-    /* Textos */
-    --color-text: #1C1917;
-    --color-text-muted: #57534E;
-    --color-border: #E7E5E4;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f3f4f6;
+
+    --color-text: #1f2328;
+    /* Github-style dark text */
+    --color-text-muted: #57606a;
+
+    --color-border: #d0d7de;
+
+    /* Terminal Window Tokens - Light Mode */
+    --color-terminal-header: #eeeeee;
+    /* Exact gray header requested: #EEEEEE */
+    --color-terminal-body: #ffffff;
+    /* Pure white body */
+    --color-terminal-prompt: #0550ae;
+    /* Deep blue prompt for light mode */
+    --color-terminal-cursor: #1f2328;
+    /* Dark block cursor */
+
+    /* Badge & Tag Tokens - Light Mode */
+    --color-badge-bg: rgba(5, 80, 174, 0.08);
+    /* Using deeper blue */
+    --color-badge-border: rgba(5, 80, 174, 0.15);
+    --color-badge-text: var(--color-primary);
+
+    /* Syntax Highlighting (Light - Modern GH style) */
+    --syntax-keyword: #cf222e;
+    --syntax-property: #24292f;
+    --syntax-string: #0a3069;
+    --syntax-operator: #cf222e;
+    --syntax-comment: #6e7781;
+    --syntax-obj-key: #953800;
+    --syntax-boolean: #0550ae;
 }

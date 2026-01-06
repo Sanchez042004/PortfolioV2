@@ -1,20 +1,25 @@
 ﻿{
     "nav": {
-        "about": "Perfil",
-        "experience": "Experiência",
-        "education": "Educação e Cert.",
-        "projects": "Projetos",
-        "contact": "Contato"
+        "home": "/inicio",
+        "profile": "/perfil",
+        "experience": "/experiencia",
+        "education": "/Educacao_e_Cert",
+        "projects": "/Projetos",
+        "contact": "/Contato"
     },
     "profile": {
+        "bio": "Engenheiro de Sistemas com experiência em análise de dados e conhecimentos em desenvolvimento de software.",
+        "bio_short": "Construindo aplicações web escaláveis e analisando dados complexos",
         "role": "Engenheiro de Sistemas, Desenvolvedor e Analista de Dados",
-        "bio": "Engenheiro de Sistemas com experiência em análise de dados e conhecimentos em desenvolvimento de software."
+        "status": "Disponível para trabalhar",
+        "focus": "Otimização de Processos",
+        "methods": "Ágil"
     },
     "hero": {
         "greeting": "Olá! Sou o",
-        "viewWork": "Ver Projetos",
-        "contactMe": "Contate-me",
-        "downloadCV": "Baixar CV"
+        "viewWork": "Ver_Projetos",
+        "contactMe": "Contato",
+        "downloadCV": "Baixar_CV"
     },
     "about": {
         "title": "Perfil",
@@ -30,13 +35,26 @@
                 "dates": "Fevereiro 2025 - Agosto 2025",
                 "description": [
                     "Desenvolvi views no BigQuery aplicando SQL para estruturar a lógica de negócio e gerar informações-chave para clientes internos e externos. Além disso, participei da migração de dashboards para o Looker usando LookML, implementando práticas de governança de dados que facilitaram o acesso a indicadores e métricas de gestão. Também colaborei na modelagem e documentação de dados, utilizando Git e boas práticas orientadas à escalabilidade e manutenção do produto de dados."
+                ],
+                "tags": [
+                    "SQL",
+                    "BigQuery",
+                    "Looker",
+                    "LookML",
+                    "Git"
                 ]
             }
         ]
     },
     "education": {
         "title": "Educação",
+        "sectionTitle": "Historico_Educacional",
         "items": [
+            {
+                "school": "Corporación Universitaria Minuto de Dios",
+                "degree": "Especialização em Desenvolvimento de Software",
+                "dates": "2025 - Presente"
+            },
             {
                 "school": "Corporación Universitaria Minuto de Dios",
                 "degree": "Engenharia de Sistemas",
@@ -49,6 +67,7 @@
     },
     "certifications": {
         "title": "Outros Estudos",
+        "sectionTitle": "Certificacoes_Ativas",
         "viewCertificate": "Ver Certificado",
         "items": [
             {
@@ -94,6 +113,7 @@
                     "Pets"
                 ],
                 "dates": "Fevereiro 2023 - Junho 2023",
+                "status": "BETA",
                 "link": "https://github.com/Sanchez042004/animal-trip"
             },
             {
@@ -108,6 +128,7 @@
                     "Scikit Learn"
                 ],
                 "dates": "Abril 2024 - Junho 2024",
+                "status": "V1.0",
                 "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
             },
             {
@@ -122,28 +143,44 @@
                     "Análise de Dados"
                 ],
                 "dates": "Agosto 2024 - Novembro 2024",
+                "status": "LIVE",
                 "link": "https://github.com/Sanchez042004/blackjack-analysis"
             }
         ]
     },
     "skills": {
-        "title": "Habilidades"
+        "title": "Habilidades",
+        "technical": "técnico",
+        "technical_list": [
+            "Python",
+            "React",
+            "SQL",
+            "Docker"
+        ],
+        "soft_skills": "soft_skills",
+        "focus": "foco",
+        "soft_skills_list": [
+            "Proatividade",
+            "Comunicação",
+            "Trabalho em Equipe"
+        ],
+        "focus_value": "Desenvolvimento Full Stack"
     },
     "contact": {
         "title": "Contato",
-        "description": "Estou disponível para projetos e oportunidades de trabalho. Escreva-me!",
+        "description": "Tem um projeto em mente? Inicie uma solicitação de conexão abaixo.",
         "sayHello": "Enviar Email",
         "form": {
-            "name": "Nome",
-            "namePlaceholder": "Seu nome completo",
-            "email": "Email",
-            "emailPlaceholder": "seu@email.com",
-            "message": "Mensagem",
+            "name": "NOME",
+            "namePlaceholder": "Digite seu nome...",
+            "email": "ENTRADA_EMAIL",
+            "emailPlaceholder": "Digite seu email...",
+            "message": "ENTRADA_MENSAGEM",
             "messagePlaceholder": "Escreva sua mensagem aqui...",
-            "send": "Enviar Mensagem",
+            "send": "./send_message.sh",
             "sending": "Enviando...",
-            "success": "Mensagem enviada com sucesso! Responderei em breve.",
-            "error": "Houve um erro ao enviar a mensagem. Por favor, tente novamente.",
+            "success": "[ OK ] Sistema: Mensagem enviada com sucesso.\n[ INFO ] Feedback: Entrarei em contato em breve.",
+            "error": "[ ERR ] Sistema: Falha na transmissão.\n[ INFO ] Ação: Por favor, tente novamente mais tarde.",
             "required": "Este campo é obrigatório",
             "invalidEmail": "Por favor, insira um email válido",
             "rateLimitError": "Por favor, aguarde {{seconds}} segundos antes de enviar outra mensagem",
@@ -161,5 +198,23 @@
         "light": "Tema Claro",
         "dark": "Tema Escuro",
         "system": "Tema do Sistema"
+    },
+    "terminal": {
+        "user_sys": "user@sys",
+        "user_admin": "admin@server",
+        "hero_path": "usr/bin/perfil --modo-visualizacao",
+        "hero_scroll": "cd ./perfil",
+        "hero_focus": "Otimizacao_de_Processos",
+        "exp_path": "usr/bin/experiencia --linha-do-tempo",
+        "exp_cat": "cat ./experiencia.historico",
+        "edu_path": "usr/bin/edu --modo-visualizacao",
+        "edu_cat": "cat ./educacao_e_certificados.json",
+        "contact_path": "admin@server:~/contate_me/escrever",
+        "contact_branding": "<Entre_Em_Contato />",
+        "about_path": "sys/info --detalhado",
+        "about_cat": "cat ./perfil.json",
+        "about_list_backend": "list --dados-backend",
+        "about_list_frontend": "list --ferramentas-frontend",
+        "scroll_top": "[^_topo]"
     }
 }

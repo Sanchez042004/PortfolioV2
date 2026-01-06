@@ -38,8 +38,8 @@ export const Certifications = () => {
 
   return `
     <section id="certifications" class="section container">
-      <h2 class="section-title">${t('certifications.title')}</h2>
-      <div class="grid grid-cols-2 gap-sm">
+      <h2 class="terminal-section-title"><span>></span> ${t('certifications.title')}</h2>
+      <div class="cert-grid">
         ${certList}
       </div>
     </section>

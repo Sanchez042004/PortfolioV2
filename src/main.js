@@ -12,13 +12,19 @@ import './styles/utilities.css'
 import './styles/layout.css'
 import './styles/components.css'
 import './styles/forms.css'
-import './styles/sections.css'
+import './styles/hero.css'
+import './styles/about.css'
+import './styles/education.css'
+import './styles/projects.css'
+import './styles/contact.css'
 import './styles/effects.css'
-import './styles/timeline.css'
-import { initI18next } from './services/i18n.js'
+import './styles/experience.css'
+import { initI18next, t } from './services/i18n.js'
 import { getSavedTheme, applyTheme, toggleTheme } from './services/theme.js'
 import { setupContactForm } from './services/contact.js'
 import { setupScrollSpy } from './utils/scrollSpy.js'
+import { ICONS } from './utils/icons.js'
+import { setupEventDelegation } from './core/interactions.js'
 
 // Components
 import { Header, setupHeaderListeners, closeMobileMenu } from './components/Layout/Header.js'
@@ -30,7 +36,6 @@ import { EducationAndCertifications } from './components/Sections/EducationAndCe
 import { Projects } from './components/Sections/Projects.js'
 import { Contact } from './components/Sections/Contact.js'
 import { Modal, openModal, closeModal } from './components/UI/Modal.js'
-import { Spotlight } from './components/UI/Spotlight.js'
 
 const app = document.querySelector('#app')
 
@@ -51,34 +56,69 @@ const render = () => {
     </main>
     ${Footer()}
     ${Modal()}
-    ${Spotlight()}
+    <button id="scroll-top-btn" class="scroll-top-btn" data-action="scroll-top">
+      ${ICONS.CHEVRON_UP}
+    </button>
   `
 }
 
 /**
  * Re-renders the application and re-attaches event listeners
  * Called on initialization and when language changes
+ * @param {boolean} skipRender - If true, skip full re-render (for language changes)
  */
-const updateApp = () => {
+const updateApp = (skipRender = false) => {
   // Check if mobile menu is open before re-rendering
+  // We need to preserve this state because the re-render destroys the DOM
   const menuToggle = document.querySelector('#menu-toggle')
   const isMenuOpen = menuToggle ? menuToggle.checked : false
 
-  render()
-  applyTheme(getSavedTheme())
+  if (!skipRender) {
+    // TODO: This full re-render is an expensive operation.
+    // Consider moving to a component-based update system (e.g., reactive state) 
+    // to avoid destroying and recreating the entire DOM on every language change.
+    render()
+    applyTheme(getSavedTheme())
 
-  // Restore mobile menu state
-  const newMenuToggle = document.querySelector('#menu-toggle')
-  if (newMenuToggle && isMenuOpen) {
-    newMenuToggle.checked = true
-    document.body.style.overflow = 'hidden' // Restore scroll lock
+    // Restore mobile menu state
+    const newMenuToggle = document.querySelector('#menu-toggle')
+    if (newMenuToggle && isMenuOpen) {
+      newMenuToggle.checked = true
+      document.body.style.overflow = 'hidden' // Restore scroll lock
+    }
   }
 
-  // Re-attach listeners because DOM was replaced
+  // Re-attach listeners because DOM was replaced (or language changed)
+  // This is a necessary side-effect of the destructive render strategy
   setupHeaderListeners(updateApp)
-  setupContactForm()
-  setupScrollSpy()
+
+  // Only setup contact form and scroll spy if we did a full render
+  if (!skipRender) {
+    setupContactForm()
+    setupScrollSpy()
+  }
 }
+
+/**
+ * Handle scroll to top button visibility
+ */
+const handleScrollTopVisibility = () => {
+  const scrollTopBtn = document.querySelector('#scroll-top-btn')
+  if (!scrollTopBtn) return
+
+  // Only show when truly at the bottom (within 10px tolerance for precision)
+  // TODO: Add debounce here if scroll performance becomes an issue
+  const isNearBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 10)
+
+  if (isNearBottom) {
+    scrollTopBtn.classList.add('visible')
+  } else {
+    scrollTopBtn.classList.remove('visible')
+  }
+}
+
+
+
 
 /**
  * Initialize the application
@@ -89,6 +129,9 @@ const init = async () => {
   // Initial render
   updateApp()
 
+  // Setup event delegation
+  setupEventDelegation()
+
   // Listen for system theme changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (getSavedTheme() === 'system') {
@@ -96,21 +139,18 @@ const init = async () => {
     }
   })
 
-  // Track mouse position for spotlight effect
-  window.addEventListener('mousemove', (e) => {
-    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`)
-    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`)
-    if (!document.body.classList.contains('has-mouse-moved')) {
-      document.body.classList.add('has-mouse-moved')
-    }
-  })
+  // Global scroll listener for back-to-top button
+  window.addEventListener('scroll', handleScrollTopVisibility)
 }
 
-// Expose global functions required by inline HTML onclick handlers
-window.toggleTheme = toggleTheme
-window.closeMobileMenu = closeMobileMenu
-window.openModal = openModal
-window.closeModal = closeModal
+// Note: Global functions removed - now using event delegation via data-action attributes
+
+import { EVENTS, on } from './core/events.js'
+
+// Subscribe to language changes
+on(EVENTS.LANGUAGE_CHANGED, () => {
+  updateApp()
+})
 
 // Start the app
 init()

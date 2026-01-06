@@ -1,0 +1,243 @@
+/* ========================================
+   EXPERIENCE SECTION (Terminal Style)
+   ======================================== */
+
+.experience-terminal {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header */
+.terminal-header {
+    background-color: var(--color-terminal-header) !important;
+    /* Dynamic header color */
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 0.375rem;
+    /* 6px */
+}
+
+.terminal-dot {
+    width: 0.75rem;
+    /* 12px */
+    height: 0.75rem;
+    border-radius: 50%;
+}
+
+.terminal-dot.red {
+    background-color: #ff5f56;
+}
+
+.terminal-dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.terminal-dot.green {
+    background-color: #27c93f;
+}
+
+.terminal-title {
+    margin-left: 0.75rem;
+    font-size: 0.75rem;
+    /* text-xs */
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+.terminal-subtitle {
+    font-size: 0.625rem;
+    /* 10px */
+    color: var(--color-text-muted);
+    opacity: 0.8;
+}
+
+/* Body */
+.terminal-body {
+    padding: 1.5rem;
+    /* p-6 */
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .terminal-body {
+        padding: 2.5rem;
+        /* md:p-10 */
+    }
+}
+
+/* Grid Background - Hidden as requested */
+.terminal-grid {
+    display: none;
+}
+
+html[data-theme='dark'] .terminal-grid {
+    opacity: 0.05;
+}
+
+/* Experience List */
+.experience-list {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* Increased gap */
+}
+
+/* Experience Item - Timeline Line */
+/* Experience Item - Timeline Line */
+.experience-item {
+    position: relative;
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--color-border);
+    /* Thin subtle line */
+    padding-bottom: 2rem;
+}
+
+/* Remove border for the last item */
+.experience-item:last-child {
+    border-left-color: transparent;
+    border-image: linear-gradient(to bottom, var(--color-border), transparent) 1 100%;
+}
+
+/* Base Dot style (Hollow Ring) */
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -0.25rem;
+    /* Center on 1px line */
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--color-terminal-body);
+    /* Masks the line behind it */
+    border: 1.5px solid var(--color-text-muted);
+    /* Default to grey/muted */
+    z-index: 2;
+}
+
+/* First item gets the highlighted Cyan ring */
+.experience-item:first-child::before {
+    border-color: #0DCCF2;
+    box-shadow: 0 0 0 3px rgba(13, 204, 242, 0.1);
+    /* Optional: faint glow */
+}
+
+/* Card Content Container - Clean wrapper */
+.experience-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Header Row: Role + Date */
+.experience-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .experience-header-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.experience-role {
+    font-size: 1.25rem;
+    /* Larger */
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.experience-date-badge {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--color-badge-text);
+    background-color: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.experience-company {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-family: var(--font-mono);
+}
+
+/* Details Box - The dark container */
+.experience-details-box {
+    background-color: var(--color-terminal-body);
+    /* Dynamic background */
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-top: -0.5rem;
+}
+
+[data-theme='light'] .experience-details-box {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Description List - Custom bullets */
+.experience-description {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.experience-description li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-description li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-weight: bold;
+}
+
+/* Tags within the box */
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.experience-tag {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    border-radius: 4px;
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 1px solid var(--color-badge-border);
+}

@@ -19,6 +19,17 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Hide Scrollbar Global */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 /* ========================================

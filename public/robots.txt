@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asanchez-cv.vercel.app/sitemap.xml

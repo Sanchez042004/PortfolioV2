@@ -1,5 +1,4 @@
 import { t } from './i18n.js'
-import { showToast } from '../components/UI/Toast.js'
 import { ICONS } from '../utils/icons.js'
 
 /**
@@ -27,15 +26,19 @@ export const applyTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', effectiveTheme)
 
     // Update icon
+    // Since we are vanilla JS, we manually update viewBox and innerHTML
+    // to switch between Sun (24x24) and Moon/System (640x640) icons.
     let iconContent = ''
     let viewBox = '0 0 24 24'
 
     if (theme === 'light') {
+        viewBox = '0 0 24 24'
         iconContent = ICONS.THEME_LIGHT
     } else if (theme === 'dark') {
+        viewBox = '0 0 640 640'
         iconContent = ICONS.THEME_DARK
     } else {
-        viewBox = '0 0 48 48'
+        viewBox = '0 0 640 640'
         iconContent = ICONS.THEME_SYSTEM
     }
 
@@ -58,7 +61,11 @@ export const applyTheme = (theme) => {
             icon.style.transform = 'rotate(0deg)'
         })
 
+
+
         // Trigger reflow to restart animation
+        // This 'void' access forces the browser to calculate layout,
+        // effectively resetting the CSS transition state.
         void icons[0].offsetWidth
 
         // Apply animation
@@ -87,5 +94,5 @@ export const toggleTheme = () => {
 
     localStorage.setItem('theme', next)
     applyTheme(next)
-    showToast(t(`themes.${next}`))
+    // showToast(t(`themes.${next}`))
 }

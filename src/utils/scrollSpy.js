@@ -10,6 +10,9 @@ export const setupScrollSpy = () => {
 
     const observerOptions = {
         root: null,
+        // 'rootMargin' defines the active area for the intersection.
+        // -20% from top and -70% from bottom means the "active" zone is
+        // a small strip near the top of the viewport.
         rootMargin: '-20% 0px -70% 0px',
         threshold: 0
     }
@@ -22,10 +25,12 @@ export const setupScrollSpy = () => {
                 // Remove active class from all links
                 navLinks.forEach(link => link.classList.remove('active'))
 
-                // Only add active class if it's not the hero section
-                // (assuming hero doesn't have a specific nav link or relies on home)
-                if (sectionId && entry.target.classList.contains('hero') === false) {
-                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`)
+                if (sectionId) {
+                    let selector = `.nav-link[href="#${sectionId}"]`
+                    if (sectionId === 'home') {
+                        selector = `.nav-link[href="#"]`
+                    }
+                    const activeLink = document.querySelector(selector)
                     if (activeLink) {
                         activeLink.classList.add('active')
                     }

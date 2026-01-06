@@ -13,102 +13,100 @@ import i18next from 'i18next'
  */
 export const Header = () => {
   const currentLang = i18next.language
-  const currentFlag = currentLang === 'es' ? ICONS.COLOMBIA_FLAG : currentLang === 'en' ? ICONS.USA_FLAG : ICONS.PORTUGAL_FLAG
 
-  // Generate Navigation Links
-  const navLinks = data.nav.map((link, index) => {
-    const translationKey = `nav.${['about', 'experience', 'education', 'projects', 'contact'][index]}`
-    return `<li><a href="${link.href}" class="nav-link js-close-menu">${t(translationKey)}</a></li>`
+  // Define nav items mapping
+  const navItems = [
+    { key: 'home', label: '/home', href: '#' },
+    { key: 'profile', label: '/profile', href: '#profile' },
+    { key: 'experience', label: '/experience', href: '#experience' },
+    { key: 'education', label: '/education', href: '#education' },
+    { key: 'projects', label: '/projects', href: '#projects' },
+    { key: 'contact', label: '/contact', href: '#contact' }
+  ]
+
+  // Generate Navigation Links (Desktop)
+  const renderNavLinks = (isMobile = false) => navItems.map(link => {
+    return `<a href="${link.href}" class="nav-link js-close-menu" data-i18n="nav.${link.key}">${t(`nav.${link.key}`)}</a>`
   }).join('')
 
   return `
     <header class="header">
-      <div class="container header-content">
-        <a href="#" class="logo js-close-menu">Curriculum Vitae</a>
-        
-        <!-- Desktop Navigation -->
-        <nav class="desktop-nav flex items-center gap-md">
-          <ul class="flex gap-md nav-list">
-            ${navLinks}
-          </ul>
-          
-          <div class="lang-selector">
-            <button id="lang-toggle-btn" class="lang-toggle" aria-label="Change language">
-              ${currentFlag}
-            </button>
-            <div id="lang-dropdown" class="lang-dropdown">
-              <div class="lang-option ${currentLang === 'es' ? 'selected' : ''}" data-lang="es">
-                ${ICONS.COLOMBIA_FLAG}
-                <span class="lang-name">Español</span>
-              </div>
-              <div class="lang-option ${currentLang === 'en' ? 'selected' : ''}" data-lang="en">
-                ${ICONS.USA_FLAG}
-                <span class="lang-name">English</span>
-              </div>
-              <div class="lang-option ${currentLang === 'pt' ? 'selected' : ''}" data-lang="pt">
-                ${ICONS.PORTUGAL_FLAG}
-                <span class="lang-name">Português</span>
-              </div>
-            </div>
-          </div>
-          
-          <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme" onclick="window.toggleTheme()">
-            <svg class="theme-icon" viewBox="0 0 24 24" fill="currentColor">
-              <!-- Icon set dynamically -->
-            </svg>
-          </button>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu-wrapper">
-          <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle mobile menu">
-          <label for="menu-toggle" class="menu-toggle-label" aria-label="Menu button">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-          </label>
-          
-          <nav class="mobile-nav">
-            <ul class="mobile-nav-list">
-              ${navLinks}
-            </ul>
-            
-            <div class="mobile-controls">
-              <div class="lang-selector">
-                <button id="mobile-lang-toggle-btn" class="lang-toggle" aria-label="Change language">
-                  ${currentFlag}
-                </button>
-                <div id="mobile-lang-backdrop" class="mobile-lang-backdrop"></div>
-                <div id="mobile-lang-dropdown" class="lang-dropdown">
-                  <div class="lang-option ${currentLang === 'es' ? 'selected' : ''}" data-lang="es">
-                    ${ICONS.COLOMBIA_FLAG}
-                    <span class="lang-name">Español</span>
-                  </div>
-                  <div class="lang-option ${currentLang === 'en' ? 'selected' : ''}" data-lang="en">
-                    ${ICONS.USA_FLAG}
-                    <span class="lang-name">English</span>
-                  </div>
-                  <div class="lang-option ${currentLang === 'pt' ? 'selected' : ''}" data-lang="pt">
-                    ${ICONS.PORTUGAL_FLAG}
-                    <span class="lang-name">Português</span>
-                  </div>
+      <div class="header-content">
+        <!-- Left: Logo System -->
+        <a href="javascript:void(0)" class="header-logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <div class="header-logo-section">
+                <div class="logo-icon">
+                    <span class="material-symbols-outlined text-xl">terminal</span>
                 </div>
-              </div>
-              
-              <button id="mobile-theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme" onclick="window.toggleTheme()">
-                <svg class="theme-icon" viewBox="0 0 24 24" fill="currentColor">
-                  <!-- Icon set dynamically -->
-                </svg>
-              </button>
+                <div class="logo-text">
+                    <span class="logo-title">&gt;_ AS_SYSTEM</span>
+                    <span class="logo-subtitle">v2.4.0-stable</span>
+                </div>
             </div>
+        </a>
+        
+        <!-- Center: Desktop Navigation -->
+        <nav class="desktop-nav">
+           ${renderNavLinks(false)}
+        </nav>
+          
+        <!-- Right: Controls -->
+        <div class="header-controls">
+            <!-- Language Selection (Desktop) -->
+            <div class="lang-selector desktop-only">
+                <button id="lang-toggle-btn" class="lang-toggle" aria-label="Change language">
+                    [ ${currentLang.toUpperCase()} ▼ ]
+                </button>
+                <div id="lang-dropdown" class="lang-dropdown">
+                    <div class="lang-option ${currentLang === 'es' ? 'active' : ''}" data-lang="es">Español</div>
+                    <div class="lang-option ${currentLang === 'en' ? 'active' : ''}" data-lang="en">English</div>
+                    <div class="lang-option ${currentLang === 'pt' ? 'active' : ''}" data-lang="pt">Português</div>
+                </div>
+            </div>
+
+            <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark/light theme" data-action="toggle-theme">
+                <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"></svg>
+            </button>
             
-            <div class="mobile-copyright">
-              &copy; ${new Date().getFullYear()} Andrés
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-wrapper">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle mobile menu">
+                <label for="menu-toggle" class="menu-toggle-label">
+                    <span class="material-symbols-outlined text-[20px]">menu</span>
+                </label>
+
+                <!-- Mobile Nav Overlay -->
+                <nav class="mobile-nav">
+                    <ul class="mobile-nav-list">
+                         ${navItems.map(link => `<li><a href="${link.href}" class="nav-link js-close-menu" data-i18n="nav.${link.key}">${t(`nav.${link.key}`)}</a></li>`).join('')}
+                    </ul>
+                    
+                    <div class="mobile-controls">
+                        <!-- Theme Toggle (Mobile) -->
+                        <button id="mobile-theme-toggle-btn" class="theme-toggle" aria-label="Toggle theme" data-action="toggle-theme">
+                            <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"></svg>
+                        </button>
+
+                        <!-- Mobile Lang Selector logic reused -->
+                         <div class="lang-selector">
+                            <button id="mobile-lang-toggle-btn" class="lang-toggle" aria-label="Change language">
+                                [ ${currentLang.toUpperCase()} ]
+                            </button>
+                         </div>
+                    </div>
+                </nav>
             </div>
-          </nav>
         </div>
       </div>
     </header>
+
+    <!-- Mobile Language Dropdown (outside header to avoid containing block issues) -->
+    <div id="mobile-lang-backdrop" class="mobile-lang-backdrop"></div>
+    <div id="mobile-lang-dropdown" class="lang-dropdown mobile-lang-dropdown-fixed">
+        <div class="lang-option ${currentLang === 'es' ? 'active' : ''}" data-lang="es">Español</div>
+        <div class="lang-option ${currentLang === 'en' ? 'active' : ''}" data-lang="en">English</div>
+        <div class="lang-option ${currentLang === 'pt' ? 'active' : ''}" data-lang="pt">Português</div>
+    </div>
   `
 }
 
@@ -151,11 +149,13 @@ const setupGlobalListeners = () => {
 const setupDesktopLanguageSelector = (renderCallback) => {
   const toggleBtn = document.querySelector('#lang-toggle-btn')
   const dropdown = document.querySelector('#lang-dropdown')
-  const options = document.querySelectorAll('.desktop-nav .lang-option')
+  const options = document.querySelectorAll('.lang-selector.desktop-only .lang-option')
 
   if (!toggleBtn || !dropdown) return
 
   // Clean listeners by replacement
+  // Cloning the node and replacing it is a surefire way to remove all existing event listeners
+  // (both named and anonymous) before attaching new ones. Useful for our re-render strategy.
   const newToggleBtn = toggleBtn.cloneNode(true)
   toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn)
 
@@ -292,9 +292,14 @@ const setupSwipeBehavior = (element, backdrop, setDisabledFn) => {
 const setupMobileMenuBehavior = () => {
   const menuCheckbox = document.querySelector('#menu-toggle')
   if (menuCheckbox) {
-    // Scroll Lock
+    // Scroll Lock and Body Class
     menuCheckbox.addEventListener('change', (e) => {
       document.body.style.overflow = e.target.checked ? 'hidden' : ''
+      if (e.target.checked) {
+        document.body.classList.add('mobile-menu-open')
+      } else {
+        document.body.classList.remove('mobile-menu-open')
+      }
     })
 
     // Close on link click
@@ -321,5 +326,6 @@ export const closeMobileMenu = () => {
   if (checkbox) {
     checkbox.checked = false
     document.body.style.overflow = ''
+    document.body.classList.remove('mobile-menu-open')
   }
 }

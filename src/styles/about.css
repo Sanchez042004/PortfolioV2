@@ -1,0 +1,120 @@
+/* ========================================
+   ABOUT / SKILLS SECTION
+   ======================================== */
+.about-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.about-terminal {
+    background-color: var(--color-terminal-body);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .about-grid {
+        flex-direction: row;
+        gap: 4rem;
+    }
+}
+
+.about-col-text,
+.about-col-skills {
+    flex: 1;
+}
+
+/* Command Line Style */
+.command-line {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.command-line::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+    display: none;
+}
+
+.prompt-user {
+    color: var(--color-secondary);
+}
+
+.prompt-path {
+    color: var(--color-accent-blue);
+}
+
+.text-content p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Skill Modules */
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-module {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-terminal-body);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-module:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-badge-bg);
+}
+
+.skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: var(--color-text);
+}
+
+.skill-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 767px) {
+    .about-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
