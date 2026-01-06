@@ -69,16 +69,32 @@ const render = () => {
  */
 const updateApp = (skipRender = false) => {
   // Check if mobile menu is open before re-rendering
-  // We need to preserve this state because the re-render destroys the DOM
   const menuToggle = document.querySelector('#menu-toggle')
   const isMenuOpen = menuToggle ? menuToggle.checked : false
 
+  // Check for contact form state to preserve
+  const nameInput = document.querySelector('#contact-name')
+  const emailInput = document.querySelector('#contact-email')
+  const messageInput = document.querySelector('#contact-message')
+
+  const formState = {
+    name: nameInput ? nameInput.value : '',
+    email: emailInput ? emailInput.value : '',
+    message: messageInput ? messageInput.value : ''
+  }
+
   if (!skipRender) {
+    // Preserve scroll position
+    const scrollPos = window.scrollY
+
     // TODO: This full re-render is an expensive operation.
     // Consider moving to a component-based update system (e.g., reactive state) 
     // to avoid destroying and recreating the entire DOM on every language change.
     render()
     applyTheme(getSavedTheme())
+
+    // Restore scroll position
+    window.scrollTo(0, scrollPos)
 
     // Restore mobile menu state
     const newMenuToggle = document.querySelector('#menu-toggle')
@@ -86,6 +102,15 @@ const updateApp = (skipRender = false) => {
       newMenuToggle.checked = true
       document.body.style.overflow = 'hidden' // Restore scroll lock
     }
+
+    // Restore contact form state
+    const newNameInput = document.querySelector('#contact-name')
+    const newEmailInput = document.querySelector('#contact-email')
+    const newMessageInput = document.querySelector('#contact-message')
+
+    if (newNameInput) newNameInput.value = formState.name
+    if (newEmailInput) newEmailInput.value = formState.email
+    if (newMessageInput) newMessageInput.value = formState.message
   }
 
   // Re-attach listeners because DOM was replaced (or language changed)
