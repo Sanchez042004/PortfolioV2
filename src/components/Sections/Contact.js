@@ -39,7 +39,15 @@ export const Contact = (formState = { name: '', email: '', message: '' }) => {
                             <div class="contact-icon-wrapper">
                                 ${ICONS.EMAIL}
                             </div>
-                            <span class="contact-method-text">${protectEmail(data.profile.social.email)}</span>
+                            <div class="contact-method-email-wrapper">
+                                <span class="contact-method-text">${protectEmail(data.profile.social.email)}</span>
+                                <div class="copy-container">
+                                    <button class="copy-btn" data-action="copy-email" title="${t('contact.copyEmail')}" aria-label="${t('contact.copyEmail')}">
+                                        ${ICONS.COPY}
+                                    </button>
+                                    <span class="copy-feedback">${t('contact.copied')}</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="contact-method-item">
                             <div class="contact-icon-wrapper">
@@ -50,15 +58,15 @@ export const Contact = (formState = { name: '', email: '', message: '' }) => {
                     </div>
 
                     <div class="contact-social-boxes">
-                        <a href="${data.profile.social.github}" target="_blank" rel="noopener noreferrer" class="contact-social-box" aria-label="GitHub">
+                        <a href="${data.profile.social.github}" target="_blank" rel="noopener noreferrer" class="contact-social-box" aria-label="GitHub" title="${t('contact.viewGithub')}">
                             ${ICONS.GITHUB}
                         </a>
-                        <a href="${data.profile.social.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-social-box" aria-label="LinkedIn">
+                        <a href="${data.profile.social.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-social-box" aria-label="LinkedIn" title="${t('contact.viewLinkedin')}">
                             ${ICONS.LINKEDIN}
                         </a>
-                        <a href="mailto:${data.profile.social.email}" class="contact-social-box" aria-label="Email">
+                        <button class="contact-social-box" aria-label="Email" data-action="open-email" title="${t('contact.openEmail')}">
                             ${ICONS.EMAIL}
-                        </a>
+                        </button>
                     </div>
                 </div>
 

@@ -169,6 +169,11 @@
     "contact": {
         "title": "Contato",
         "description": "Tem um projeto em mente? Inicie uma solicitação de conexão abaixo.",
+        "openEmail": "Abrir cliente de e-mail",
+        "copyEmail": "Copiar e-mail",
+        "copied": "Copiado!",
+        "viewGithub": "Ver perfil do GitHub",
+        "viewLinkedin": "Ver perfil do LinkedIn",
         "sayHello": "Enviar Email",
         "form": {
             "name": "NOME",

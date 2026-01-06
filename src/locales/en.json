@@ -169,6 +169,11 @@
     "contact": {
         "title": "Contact",
         "description": "Have a project in mind? Initialize a connection request below.",
+        "openEmail": "Open mail client",
+        "copyEmail": "Copy email",
+        "copied": "Copied!",
+        "viewGithub": "View GitHub profile",
+        "viewLinkedin": "View LinkedIn profile",
         "sayHello": "Send Email",
         "form": {
             "name": "NAME",

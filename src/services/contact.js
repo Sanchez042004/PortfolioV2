@@ -120,6 +120,5 @@ export const setupContactForm = async () => {
 const showFeedback = (element, html, type) => {
     element.innerHTML = html
     element.className = `form-message ${type}`
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
 

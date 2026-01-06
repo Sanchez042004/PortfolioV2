@@ -8,6 +8,9 @@
 
 import { toggleTheme } from '../services/theme.js'
 import { openModal, closeModal } from '../components/UI/Modal.js'
+import { data } from '../data.js'
+import { t } from '../services/i18n.js'
+import { ICONS } from '../utils/icons.js'
 
 /**
  * Scroll to top of the page smoothly
@@ -29,7 +32,27 @@ const actionHandlers = {
         if (pdfUrl) openModal(pdfUrl)
     },
     'close-modal': () => closeModal(),
-    'scroll-top': () => scrollToTop()
+    'scroll-top': () => scrollToTop(),
+    'open-email': () => {
+        window.location.href = `mailto:${data.profile.social.email}`
+    },
+    'copy-email': (target) => {
+        const email = data.profile.social.email
+        navigator.clipboard.writeText(email).then(() => {
+            const originalTitle = target.getAttribute('title')
+            const originalHTML = target.innerHTML
+
+            target.setAttribute('title', t('contact.copied'))
+            target.classList.add('copied')
+            target.innerHTML = ICONS.CHECK
+
+            setTimeout(() => {
+                target.setAttribute('title', originalTitle)
+                target.classList.remove('copied')
+                target.innerHTML = originalHTML
+            }, 2000)
+        })
+    }
 }
 
 /**
