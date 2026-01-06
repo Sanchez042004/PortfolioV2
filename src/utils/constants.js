@@ -20,7 +20,7 @@ export const CONFIG = {
     CONTACT_EMAIL: 'afsarias2004@gmail.com',
 
     // Resume
-    RESUME_PATH: '/Ing_Andres_Sanchez_CV.pdf',
+    RESUME_PATH: '/CV/Ing_Andres_Sanchez_CV.pdf',
 
     // App State Defaults
     DEFAULT_LANG: 'es',
