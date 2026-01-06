@@ -104,7 +104,7 @@
     font-weight: 500;
     color: var(--color-text-muted);
     border-radius: var(--radius-sm);
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, background-color 0.2s ease; /* Avoided color transition */
     text-decoration: none;
     font-family: var(--font-mono);
 }
@@ -113,6 +113,7 @@
 .nav-link.active {
     color: var(--color-primary);
     background-color: var(--color-surface-hover);
+    opacity: 1;
 }
 
 [data-theme="light"] .nav-link:hover {

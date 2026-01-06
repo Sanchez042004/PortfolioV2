@@ -19,13 +19,17 @@ export const setupContactForm = async () => {
     // Initialize services
     EmailService.init()
 
-    try {
-        await ReCaptchaService.load()
-    } catch (error) {
-        // Soft fail: allow form to load even if ReCaptcha block/fails (e.g. adblockers)
-        // Validation might fail server-side if token is mandatory there, but UI shouldn't crash.
-        console.warn('ReCaptcha failed to load, continuing without it.')
-    }
+    // Defer reCAPTCHA loading until user is near the contact section
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                ReCaptchaService.load().catch(err => console.warn('ReCaptcha deferred load failed:', err))
+                observer.unobserve(form)
+            }
+        })
+    }, { rootMargin: '100px' }) // Start loading when 100px away
+
+    observer.observe(form)
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
