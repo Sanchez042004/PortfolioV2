@@ -353,3 +353,38 @@
 .skills-code-section {
     margin-top: 3rem;
 }
+
+/* Fix for mobile text overflow in code block */
+@media (max-width: 768px) {
+    .skills-code-section {
+        margin-top: 2rem;
+        overflow-x: hidden;
+        /* Prevent horizontal scroll on body */
+    }
+
+    .skills-code {
+        white-space: pre-wrap !important;
+        /* Force text wrap */
+        word-break: break-word !important;
+        /* Break long words */
+        font-size: 0.8rem;
+        /* Smaller font */
+        padding: 1rem;
+        width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* Improve Certification Cards on Mobile */
+    .cert-card-compact {
+        padding: 1rem;
+    }
+
+    .cert-card-header {
+        gap: 0.5rem;
+    }
+
+    .cert-year-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+}

@@ -97,5 +97,5 @@ Construyendo soluciones eficientes y escalables.
 
 ---
 <div align="center">
-    &copy; 2025 Andrés Sánchez. Hecho con ❤️ y código limpio.
+    &copy; 2026 Andrés Sánchez. Hecho con ❤️.
 </div>
