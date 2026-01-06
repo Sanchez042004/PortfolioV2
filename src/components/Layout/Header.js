@@ -9,9 +9,10 @@ import i18next from 'i18next'
 
 /**
  * Render the header component with navigation and controls
+ * @param {boolean} isMenuOpen - Current state of the mobile menu
  * @returns {string} HTML string for the header
  */
-export const Header = () => {
+export const Header = (isMenuOpen = false) => {
   const currentLang = i18next.language
 
   // Define nav items mapping
@@ -70,7 +71,7 @@ export const Header = () => {
             
             <!-- Mobile Menu Toggle -->
             <div class="mobile-menu-wrapper">
-                <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle mobile menu">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle mobile menu" ${isMenuOpen ? 'checked' : ''}>
                 <label for="menu-toggle" class="menu-toggle-label">
                     <span class="material-symbols-outlined text-[20px]">menu</span>
                 </label>

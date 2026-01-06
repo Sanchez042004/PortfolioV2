@@ -42,17 +42,18 @@ const app = document.querySelector('#app')
 /**
  * Render the entire application
  * Updates the DOM with all components
+ * @param {Object} state - Current UI state to preserve
  */
-const render = () => {
+const render = (state = { isMenuOpen: false, formState: { name: '', email: '', message: '' } }) => {
   app.innerHTML = `
-    ${Header()}
+    ${Header(state.isMenuOpen)}
     <main>
       ${Hero()}
       ${About()}
       ${Experience()}
       ${EducationAndCertifications()}
       ${Projects()}
-      ${Contact()}
+      ${Contact(state.formState)}
     </main>
     ${Footer()}
     ${Modal()}
@@ -87,30 +88,13 @@ const updateApp = (skipRender = false) => {
     // Preserve scroll position
     const scrollPos = window.scrollY
 
-    // TODO: This full re-render is an expensive operation.
-    // Consider moving to a component-based update system (e.g., reactive state) 
-    // to avoid destroying and recreating the entire DOM on every language change.
-    render()
+    // Render with preserved state
+    render({ isMenuOpen, formState })
+
     applyTheme(getSavedTheme())
 
     // Restore scroll position
     window.scrollTo(0, scrollPos)
-
-    // Restore mobile menu state
-    const newMenuToggle = document.querySelector('#menu-toggle')
-    if (newMenuToggle && isMenuOpen) {
-      newMenuToggle.checked = true
-      document.body.style.overflow = 'hidden' // Restore scroll lock
-    }
-
-    // Restore contact form state
-    const newNameInput = document.querySelector('#contact-name')
-    const newEmailInput = document.querySelector('#contact-email')
-    const newMessageInput = document.querySelector('#contact-message')
-
-    if (newNameInput) newNameInput.value = formState.name
-    if (newEmailInput) newEmailInput.value = formState.email
-    if (newMessageInput) newMessageInput.value = formState.message
   }
 
   // Re-attach listeners because DOM was replaced (or language changed)

@@ -4,9 +4,10 @@ import { ICONS } from '../../utils/icons.js'
 
 /**
  * Render the contact section with interactive form and social links
+ * @param {Object} formState - Initial data for the form fields
  * @returns {string} HTML string for the contact section
  */
-export const Contact = () => {
+export const Contact = (formState = { name: '', email: '', message: '' }) => {
     return `
     <section id="contact" class="section container contact-section">
       <h2 class="terminal-section-title"><span>></span> <span class="section-title-text" data-i18n="contact.title">${t('contact.title')}</span></h2>
@@ -75,6 +76,7 @@ export const Contact = () => {
                                     data-i18n-attr="placeholder"
                                     data-i18n="contact.form.namePlaceholder"
                                     autocomplete="off"
+                                    value="${formState.name}"
                                     required
                                 >
                                 <span class="form-error" id="name-error"></span>
@@ -91,6 +93,7 @@ export const Contact = () => {
                                     data-i18n-attr="placeholder"
                                     data-i18n="contact.form.emailPlaceholder"
                                     autocomplete="off"
+                                    value="${formState.email}"
                                     required
                                 >
                                 <span class="form-error" id="email-error"></span>
@@ -108,7 +111,7 @@ export const Contact = () => {
                                 data-i18n-attr="placeholder"
                                 data-i18n="contact.form.messagePlaceholder"
                                 required
-                            ></textarea>
+                            >${formState.message}</textarea>
                             <span class="form-error" id="message-error"></span>
                         </div>
                         
