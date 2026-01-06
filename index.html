@@ -2,74 +2,38 @@
 <html lang="es">
 
 <head>
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- SEO Meta Tags -->
     <title>Andrés | Junior Software Engineer</title>
     <meta name="description"
-        content="Junior Software Engineer con experiencia práctica en análisis de datos. Especializado en desarrollo web moderno, React y resolución de problemas. Explora mi portfolio." />
-    <meta name="keywords"
-        content="Software Engineer, Junior Developer, React, JavaScript, Web Development, Portfolio, Data Analysis" />
+        content="Junior Software Engineer especializado en desarrollo web moderno y React. Explora mi portfolio." />
     <meta name="author" content="Andrés Sánchez" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://asanchez-cv.vercel.app/" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://asanchez-cv.vercel.app/" />
-    <meta property="og:title" content="Andrés | Junior Software Engineer" />
-    <meta property="og:description"
-        content="Junior Software Engineer. Transformando conceptos en aplicaciones web eficientes. Ver portfolio y experiencia." />
-    <meta property="og:image" content="https://asanchez-cv.vercel.app/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://asanchez-cv.vercel.app/" />
-    <meta property="twitter:title" content="Andrés | Junior Software Engineer" />
-    <meta property="twitter:description" content="Junior Software Engineer. Ver proyectos y CV." />
-    <meta property="twitter:image" content="https://asanchez-cv.vercel.app/og-image.jpg" />
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Andrés Sánchez",
-      "jobTitle": "Junior Software Engineer",
-      "url": "https://asanchez-cv.vercel.app",
-      "sameAs": [
-        "https://github.com/",
-        "https://linkedin.com/"
-      ],
-      "knowsAbout": ["Software Engineering", "React", "JavaScript", "SQL", "Data Analysis (Internship)"]
-    }
-    </script>
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/iconAndres.ico" />
 
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="/photo.webp" fetchpriority="high">
-
-    <!-- Optimized Font Loading -->
+    <!-- Performance: Preconnect & Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload LCP Assets -->
+    <link rel="preload" as="image" href="/photo.webp" fetchpriority="high">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap&subset=latin">
+
+    <!-- Optimized Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap&subset=latin"
         rel="stylesheet">
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap"
-            rel="stylesheet">
-    </noscript>
+
     <style>
         :root {
             --color-bg: #0d1117;
             --color-text: #c9d1d9;
-            --color-primary: #0dccf2;
             --font-family: 'JetBrains Mono', monospace;
         }
 
@@ -78,8 +42,7 @@
             color: var(--color-text);
             font-family: var(--font-family);
             margin: 0;
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden;
         }
 
         .header {
@@ -92,37 +55,33 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            min-height: 50vh;
         }
 
         .hero-title {
-            font-size: 3rem;
-            margin: 0;
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 700;
+            margin: 1rem 0;
             color: #fff;
-            opacity: 0;
-            /* Let JS animate it or show it */
-            animation: fadeIn 0.5s ease forwards;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        #app {
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <!-- Skeleton for LCP -->
-        <section class="hero">
-            <h1 class="hero-title">ANDRÉS SÁNCHEZ</h1>
-        </section>
+        <!-- LCP Skeleton -->
+        <header class="header"></header>
+        <main>
+            <section class="hero">
+                <h1 class="hero-title">ANDRÉS SÁNCHEZ</h1>
+            </section>
+        </main>
     </div>
-
     <script type="module" src="/src/main.js"></script>
 </body>
 
