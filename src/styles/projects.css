@@ -4,7 +4,7 @@
 .project-grid-v2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-top: 1rem;
     width: 100%;
     max-width: 1200px;
@@ -36,7 +36,7 @@
 
 .project-card-image-v2 {
     width: 100%;
-    height: 140px;
+    height: 150px;
     object-fit: cover;
     border-bottom: 1px solid var(--color-border);
 }
@@ -86,17 +86,30 @@
     flex: 1;
 }
 
+.project-footer-v2 {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 6rem;
+    /* Ensures all separators start at the same high level */
+}
+
 .project-separator-v2 {
     border: none;
     border-top: 2px dotted rgba(139, 148, 158, 0.2);
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.75rem 0;
+    /* margin-top: auto pushes the entire footer down */
 }
 
 .project-tags-v2 {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    flex: 1;
+    /* Takes up available space to push links down */
+    align-content: flex-start;
+    /* Tags stay tight against the separator */
 }
 
 .project-tag-v2 {

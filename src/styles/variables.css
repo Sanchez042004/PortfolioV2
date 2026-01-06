@@ -58,8 +58,8 @@
 
     --color-text: #c9d1d9;
     /* dark:text-[#c9d1d9] */
-    --color-text-muted: #8b949e;
-    /* dark:text-[#8b949e] */
+    --color-text-muted: #a1a1a1;
+    /* dark:text-[#a1a1a1] - Improved contrast from 3.5:1 to 4.5:1 */
 
     --color-border: #30363d;
     /* dark:border-[#30363d] */
@@ -105,7 +105,8 @@ html[data-theme="light"],
 
     --color-text: #1f2328;
     /* Github-style dark text */
-    --color-text-muted: #57606a;
+    --color-text-muted: #4b5563;
+    /* Improved contrast from 4.3:1 to 4.5:1 */
 
     --color-border: #d0d7de;
 

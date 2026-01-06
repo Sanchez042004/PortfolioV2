@@ -34,7 +34,7 @@ export const Header = (isMenuOpen = false) => {
     <header class="header">
       <div class="header-content">
         <!-- Left: Logo System -->
-        <a href="javascript:void(0)" class="header-logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <a href="#" class="header-logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <div class="header-logo-section">
                 <div class="logo-icon">
                     <span class="material-symbols-outlined text-xl">terminal</span>

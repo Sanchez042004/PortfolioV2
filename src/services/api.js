@@ -13,9 +13,22 @@ export class EmailService {
      * Initialize EmailJS with Public Key
      * @returns {void}
      */
-    static init() {
+    static async init() {
         const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        if (PUBLIC_KEY && window.emailjs) {
+        if (!PUBLIC_KEY) return
+
+        if (!window.emailjs) {
+            await new Promise((resolve, reject) => {
+                const script = document.createElement('script')
+                script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'
+                script.async = true
+                script.onload = resolve
+                script.onerror = () => reject(new Error('Failed to load EmailJS SDK'))
+                document.head.appendChild(script)
+            })
+        }
+
+        if (window.emailjs) {
             window.emailjs.init(PUBLIC_KEY)
         }
     }
