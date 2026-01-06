@@ -1,11 +1,12 @@
 import { CONFIG } from './utils/constants.js'
+import { decodeInfo } from './utils/obfuscation.js'
 
 export const data = {
     profile: {
         name: import.meta.env.VITE_PROFILE_NAME || 'Andrés Sánchez',
         location: import.meta.env.VITE_PROFILE_LOCATION || 'Bogotá, Colombia',
         social: {
-            email: `mailto:${CONFIG.CONTACT_EMAIL}`,
+            email: decodeInfo(CONFIG.CONTACT_EMAIL),
             github: CONFIG.GITHUB_URL,
             linkedin: CONFIG.LINKEDIN_URL,
         },

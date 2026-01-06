@@ -1,6 +1,7 @@
 import { t } from '../../services/i18n.js'
 import { data } from '../../data.js'
 import { ICONS } from '../../utils/icons.js'
+import { protectEmail } from '../../utils/obfuscation.js'
 
 /**
  * Render the contact section with interactive form and social links
@@ -38,7 +39,7 @@ export const Contact = (formState = { name: '', email: '', message: '' }) => {
                             <div class="contact-icon-wrapper">
                                 ${ICONS.EMAIL}
                             </div>
-                            <span class="contact-method-text">${data.profile.social.email.replace('mailto:', '')}</span>
+                            <span class="contact-method-text">${protectEmail(data.profile.social.email)}</span>
                         </div>
                         <div class="contact-method-item">
                             <div class="contact-icon-wrapper">
@@ -55,7 +56,7 @@ export const Contact = (formState = { name: '', email: '', message: '' }) => {
                         <a href="${data.profile.social.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-social-box" aria-label="LinkedIn">
                             ${ICONS.LINKEDIN}
                         </a>
-                        <a href="${data.profile.social.email}" class="contact-social-box" aria-label="Email">
+                        <a href="mailto:${data.profile.social.email}" class="contact-social-box" aria-label="Email">
                             ${ICONS.EMAIL}
                         </a>
                     </div>

@@ -17,7 +17,8 @@ export const CONFIG = {
     },
 
     // Email
-    CONTACT_EMAIL: 'afsarias2004@gmail.com',
+    // Email (Encoded: afsarias2004@gmail.com)
+    CONTACT_EMAIL: 'YWZzYXJpYXMyMDA0QGdtYWlsLmNvbQ==',
 
     // Resume
     RESUME_PATH: '/CV/Ing_Andres_Sanchez_CV.pdf',
