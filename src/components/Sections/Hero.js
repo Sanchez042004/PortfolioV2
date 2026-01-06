@@ -80,18 +80,18 @@ export const Hero = () => {
                     <!-- Actions -->
                     <div class="hero-actions">
                          <a href="#projects" class="btn btn-primary group">
-                            <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+                            ${ICONS.ROCKET}
                             <span data-i18n="hero.viewWork">${t('hero.viewWork')}</span>
                             <span class="btn-arrow">-&gt;</span>
                         </a>
 
                         <a href="${data.profile.cv}" class="btn btn-outline" download target="_blank" rel="noopener noreferrer">
-                            <span class="material-symbols-outlined text-[18px]">download</span>
+                            ${ICONS.DOWNLOAD}
                             <span data-i18n="hero.downloadCV">${t('hero.downloadCV')}</span>
                         </a>
 
                         <a href="#contact" class="btn btn-ghost">
-                            <span class="material-symbols-outlined text-[18px]">mail</span>
+                            ${ICONS.MAIL}
                             <span data-i18n="hero.contactMe">${t('hero.contactMe')}</span>
                         </a>
                     </div>
@@ -102,7 +102,9 @@ export const Hero = () => {
       
       <a href="#profile" class="scroll-indicator">
         <span class="scroll-text" data-i18n="terminal.hero_scroll">${t('terminal.hero_scroll')}</span>
-        <span class="material-symbols-outlined animate-bounce">keyboard_arrow_down</span>
+        <div class="animate-bounce">
+            ${ICONS.CHEVRON_DOWN}
+        </div>
       </a>
     </section>
     `

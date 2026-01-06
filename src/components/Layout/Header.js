@@ -37,7 +37,7 @@ export const Header = (isMenuOpen = false) => {
         <a href="#" class="header-logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <div class="header-logo-section">
                 <div class="logo-icon">
-                    <span class="material-symbols-outlined text-xl">terminal</span>
+                    ${ICONS.TERMINAL}
                 </div>
                 <div class="logo-text">
                     <span class="logo-title">&gt;_ AS_SYSTEM</span>
@@ -73,7 +73,7 @@ export const Header = (isMenuOpen = false) => {
             <div class="mobile-menu-wrapper">
                 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle mobile menu" ${isMenuOpen ? 'checked' : ''}>
                 <label for="menu-toggle" class="menu-toggle-label">
-                    <span class="material-symbols-outlined text-[20px]">menu</span>
+                    ${ICONS.MENU}
                 </label>
 
                 <!-- Mobile Nav Overlay -->
