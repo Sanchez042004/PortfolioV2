@@ -120,6 +120,10 @@ export const Contact = (formState = { name: '', email: '', message: '' }) => {
                         </button>
                         
                         <div id="form-message" class="form-message"></div>
+                        
+                        <p class="recaptcha-notice" data-i18n="contact.form.recaptchaNotice">
+                            ${t('contact.form.recaptchaNotice')}
+                        </p>
                     </form>
                 </div>
             </div>
