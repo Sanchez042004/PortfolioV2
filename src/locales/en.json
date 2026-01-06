@@ -105,7 +105,7 @@
                 "title": "Animal Trip",
                 "image": "/projects/AnimalTrip.avif",
                 "imageStyle": "object-position: 100% 80%;",
-                "description": "Functional app prototype offering safe travel and veterinary accompaniment for pets on planes or buses.",
+                "description": "University project that offers safe travel and veterinary support for pets on airplanes or buses.",
                 "tags": [
                     "Java",
                     "SQL Server",

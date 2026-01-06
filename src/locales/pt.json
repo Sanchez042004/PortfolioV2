@@ -105,7 +105,7 @@
                 "title": "Animal Trip",
                 "image": "/projects/AnimalTrip.avif",
                 "imageStyle": "object-position: 100% 80%;",
-                "description": "Protótipo funcional de aplicativo que oferece viagens seguras e acompanhamento veterinário para animais de estimação em aviões ou ônibus.",
+                "description": "Projeto universitário que oferece viagens seguras e suporte veterinário para animais de estimação em aviões ou ônibus.",
                 "tags": [
                     "Java",
                     "SQL Server",
