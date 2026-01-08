@@ -135,7 +135,7 @@
             {
                 "title": "Análisis Estratégico del Blackjack",
                 "image": "/projects/Blackjack.avif",
-                "imageStyle": "object-position: center 75%;",
+                "imageStyle": "object-position: center 45%;",
                 "description": "Minería de datos aplicada al Blackjack para extraer patrones de juego y generar estrategias óptimas de toma de decisiones.",
                 "tags": [
                     "R",

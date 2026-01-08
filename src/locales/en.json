@@ -135,7 +135,7 @@
             {
                 "title": "Blackjack Strategic Analysis",
                 "image": "/projects/Blackjack.avif",
-                "imageStyle": "object-position: center 75%;",
+                "imageStyle": "object-position: center 45%;",
                 "description": "Data mining project analyzing Blackjack games in casinos, extracting patterns and generating strategies to optimize in-game decisions.",
                 "tags": [
                     "R",
