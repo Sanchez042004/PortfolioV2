@@ -45,7 +45,7 @@ export const Projects = () => {
             ` : ''}
             
             ${project.deploy && project.deploy !== '#' ? `
-              <a href="${project.deploy}" target="_blank" rel="noopener noreferrer" class="project-link-v2" title="Demo">
+              <a href="${project.deploy}" target="_blank" rel="noopener noreferrer" class="project-link-v2" title="${t('projects.viewProject')}">
                 ${ICONS.EXTERNAL_LINK}
               </a>
             ` : ''}

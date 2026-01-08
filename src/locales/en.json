@@ -102,19 +102,20 @@
         "viewCode": "View Code",
         "items": [
             {
-                "title": "Animal Trip",
-                "image": "/projects/AnimalTrip.avif",
-                "imageStyle": "object-position: 100% 80%;",
-                "description": "University project that offers safe travel and veterinary support for pets on airplanes or buses.",
+                "title": "Knot.ly",
+                "image": "/projects/Knotly.avif",
+                "imageStyle": "object-fit: cover; object-position: center 12%;",
+                "description": "URL shortener for creators who value speed, privacy, and absolute control over their traffic. Map your audience's journey with precision.",
                 "tags": [
-                    "Java",
-                    "SQL Server",
-                    "Travel",
-                    "Pets"
+                    "React",
+                    "Node.js",
+                    "PostgreSQL",
+                    "Analytics"
                 ],
-                "dates": "February 2023 - June 2023",
-                "status": "BETA",
-                "link": "https://github.com/Sanchez042004/animal-trip"
+                "dates": "October 2025 - January 2026",
+                "status": "LIVE",
+                "link": "https://github.com/Sanchez042004/knotly",
+                "deploy": "https://knot-ly.vercel.app/"
             },
             {
                 "title": "Heart & Diabetes ML",
@@ -134,6 +135,7 @@
             {
                 "title": "Blackjack Strategic Analysis",
                 "image": "/projects/Blackjack.avif",
+                "imageStyle": "object-position: center 75%;",
                 "description": "Data mining project analyzing Blackjack games in casinos, extracting patterns and generating strategies to optimize in-game decisions.",
                 "tags": [
                     "R",
