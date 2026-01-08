@@ -10,7 +10,7 @@ export const data = {
             github: CONFIG.GITHUB_URL,
             linkedin: CONFIG.LINKEDIN_URL,
         },
-        avatar: '/photo.avif',
+        avatar: '/Andres.avif',
         cv: CONFIG.RESUME_PATH
     },
     nav: [
