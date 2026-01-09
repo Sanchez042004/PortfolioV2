@@ -21,7 +21,7 @@ export const CONFIG = {
     CONTACT_EMAIL: 'YWZzYXJpYXMyMDA0QGdtYWlsLmNvbQ==',
 
     // Resume
-    RESUME_PATH: '/CV/Andres_Sanchez_CV-ES.pdf',
+    RESUME_PATH: '/CV/Andres_Sanchez_CV.pdf',
 
     // App State Defaults
     DEFAULT_LANG: 'es',
