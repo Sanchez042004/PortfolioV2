@@ -102,6 +102,22 @@
         "viewCode": "View Code",
         "items": [
             {
+                "title": "Trello Clone",
+                "image": "/projects/TrelloClone.avif",
+                "imageStyle": "object-fit: cover; object-position: center 12%;",
+                "description": "Trello clone featuring local persistence with an optional sign-up for permanent cloud synchronization. A technical challenge focused on UX, data management, and Agile methodologies.",
+                "tags": [
+                    "React",
+                    "Node.js",
+                    "JWT",
+                    "SCRUM"
+                ],
+                "dates": "February 2026 - April 2026",
+                "status": "LIVE",
+                "link": "https://github.com/Sanchez042004/TrelloClone",
+                "deploy": "https://andres-trello.vercel.app/"
+            },
+            {
                 "title": "Knot.ly",
                 "image": "/projects/Knotly.avif",
                 "imageStyle": "object-fit: cover; object-position: center 12%;",
@@ -131,22 +147,6 @@
                 "dates": "April 2024 - June 2024",
                 "status": "V1.0",
                 "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
-            },
-            {
-                "title": "Blackjack Strategic Analysis",
-                "image": "/projects/Blackjack.avif",
-                "imageStyle": "object-position: center 45%;",
-                "description": "Data mining project analyzing Blackjack games in casinos, extracting patterns and generating strategies to optimize in-game decisions.",
-                "tags": [
-                    "R",
-                    "Neural Networks",
-                    "KDD",
-                    "LaTex",
-                    "Data Analysis"
-                ],
-                "dates": "August 2024 - November 2024",
-                "status": "LIVE",
-                "link": "https://github.com/Sanchez042004/blackjack-analysis"
             }
         ]
     },

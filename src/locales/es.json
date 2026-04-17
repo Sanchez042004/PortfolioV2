@@ -102,6 +102,22 @@
         "viewCode": "Ver Código",
         "items": [
             {
+                "title": "Trello Clone",
+                "image": "/projects/TrelloClone.avif",
+                "imageStyle": "object-fit: cover; object-position: center 12%;",
+                "description": "Clon de Trello que ofrece persistencia local con opción de registro para sincronización permanente en la nube. Un reto técnico de UX, datos y metodologías ágiles.",
+                "tags": [
+                    "React",
+                    "Node.js",
+                    "JWT",
+                    "SCRUM"
+                ],
+                "dates": "Febrero 2026 - Abril 2026",
+                "status": "LIVE",
+                "link": "https://github.com/Sanchez042004/TrelloClone",
+                "deploy": "https://andres-trello.vercel.app/"
+            },
+            {
                 "title": "Knot.ly",
                 "image": "/projects/Knotly.avif",
                 "imageStyle": "object-fit: cover; object-position: center 12%;",
@@ -131,22 +147,6 @@
                 "dates": "Abril 2024 - Junio 2024",
                 "status": "V1.0",
                 "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
-            },
-            {
-                "title": "Análisis Estratégico del Blackjack",
-                "image": "/projects/Blackjack.avif",
-                "imageStyle": "object-position: center 45%;",
-                "description": "Minería de datos aplicada al Blackjack para extraer patrones de juego y generar estrategias óptimas de toma de decisiones.",
-                "tags": [
-                    "R",
-                    "Redes Neuronales",
-                    "KDD",
-                    "LaTex",
-                    "Análisis de Datos"
-                ],
-                "dates": "Agosto 2024 - Noviembre 2024",
-                "status": "LIVE",
-                "link": "https://github.com/Sanchez042004/blackjack-analysis"
             }
         ]
     },

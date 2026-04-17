@@ -102,6 +102,22 @@
         "viewCode": "Ver Código",
         "items": [
             {
+                "title": "Trello Clone",
+                "image": "/projects/TrelloClone.avif",
+                "imageStyle": "object-fit: cover; object-position: center 12%;",
+                "description": "Clone do Trello que oferece persistência local com opção de registro para sincronização permanente na nuvem. Um desafio técnico focado em UX, gestão de dados e metodologias ágeis.",
+                "tags": [
+                    "React",
+                    "Node.js",
+                    "JWT",
+                    "SCRUM"
+                ],
+                "dates": "Fevereiro 2026 - Abril 2026",
+                "status": "LIVE",
+                "link": "https://github.com/Sanchez042004/TrelloClone",
+                "deploy": "https://andres-trello.vercel.app/"
+            },
+            {
                 "title": "Knot.ly",
                 "image": "/projects/Knotly.avif",
                 "imageStyle": "object-fit: cover; object-position: center 12%;",
@@ -131,22 +147,6 @@
                 "dates": "Abril 2024 - Junho 2024",
                 "status": "V1.0",
                 "link": "https://github.com/Sanchez042004/Heart-Diabetes-ML"
-            },
-            {
-                "title": "Análise Estratégica do Blackjack",
-                "image": "/projects/Blackjack.avif",
-                "imageStyle": "object-position: center 45%;",
-                "description": "Projeto que aplica mineração de dados para analisar partidas de Blackjack em cassinos, extraindo padrões e gerando estratégias para otimizar as decisões durante o jogo.",
-                "tags": [
-                    "R",
-                    "Redes Neurais",
-                    "KDD",
-                    "LaTex",
-                    "Análise de Dados"
-                ],
-                "dates": "Agosto 2024 - Novembro 2024",
-                "status": "LIVE",
-                "link": "https://github.com/Sanchez042004/blackjack-analysis"
             }
         ]
     },
