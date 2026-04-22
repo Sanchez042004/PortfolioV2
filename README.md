@@ -1,4 +1,4 @@
-# 💼 Andrés Sánchez - Portfolio Profesional
+# Andrés Sánchez - Portfolio Profesional
 
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
@@ -10,29 +10,29 @@
 
 Este proyecto no es solo una presentación de mi experiencia, sino una demostración robusta de desarrollo frontend moderno utilizando **Vanilla JavaScript** puro. Sin frameworks pesados (como React o Vue) para el renderizado, este portafolio logra una arquitectura reactiva, modular y altamente performante, demostrando un dominio profundo de los fundamentos de la web.
 
-## ✨ Características Técnicas
+## Características Técnicas
 
-*   **🏗️ Arquitectura SPA (Single Page Application):** Navegación fluida sin recargas, manejada con un router personalizado en Vanilla JS.
-*   **🌍 Internacionalización (i18n) Profunda:**
+*   ** Arquitectura SPA (Single Page Application):** Navegación fluida sin recargas, manejada con un router personalizado en Vanilla JS.
+*   ** Internacionalización (i18n) Profunda:**
     *   Soporte completo para **Español, Inglés y Portugués**.
     *   Gestión de contenido dinámica: Textos, Habilidades Técnicas y Soft Skills se cargan desde archivos JSON, permitiendo actualizaciones sin tocar el código.
-*   **🎨 Sistema de Temas Avanzado:**
+*   ** Sistema de Temas Avanzado:**
     *   Modo Claro / Oscuro / Sistema.
     *   Persistencia de preferencias y detección automática.
-*   **📱 Diseño Ultra-Responsive:**
+*   ** Diseño Ultra-Responsive:**
     *   Adaptación pixel-perfect desde móviles pequeños (320px) hasta pantallas 4K.
     *   Menú móvil interactivo con animaciones suaves y lógica de bloqueo de scroll.
-*   **🧩 CSS Modular y Escalable:**
+*   ** CSS Modular y Escalable:**
     *   Abandono de hojas de estilo monolíticas en favor de archivos CSS dedicados por componente (`hero.css`, `contact.css`, etc.), facilitando el mantenimiento y la escalabilidad.
-*   **🚀 Optimización y SEO:**
+*   ** Optimización y SEO:**
     *   Lazy loading de imágenes y assets.
     *   Estructura semántica, metadatos Open Graph, Twitter Cards y Sitemap XML para máxima visibilidad.
-*   **🔒 Seguridad y Formularios:**
+*   ** Seguridad y Formularios:**
     *   Integración segura con EmailJS.
     *   Protección anti-spam con reCAPTCHA v2 y rate-limiting en el cliente.
     *   Validaciones de entrada robustas y sanitización de datos.
 
-## 📂 Organización del Código (Refactorizado)
+##  Organización del Código
 
 El proyecto sigue una estructura limpia y predecible:
 
@@ -54,14 +54,14 @@ El proyecto sigue una estructura limpia y predecible:
 *   `src/services/`: Integraciones externas (i18n, EmailJS, Theme).
 *   `src/locales/`: Archivos JSON de traducción.
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 *   **Core:** HTML5, CSS3, JavaScript (ES6+).
 *   **Build Tool:** Vite.
 *   **Librerías:** `i18next` (i18n), `emailjs-com` (Formularios).
 *   **Iconos:** Material Symbols & SVGs personalizados.
 
-## 🚀 Instalación y Despliegue
+## Instalación y Despliegue
 
 1.  **Clonar el repositorio:**
     ```bash
@@ -84,18 +84,8 @@ El proyecto sigue una estructura limpia y predecible:
     npm run build
     ```
 
-## 👤 Autor
+## Autor
 
 **Andrés Sánchez**
-*Ingeniero de Sistemas | Junior Software Engineer*
-
-Construyendo soluciones eficientes y escalables.
-
-*   💼 **LinkedIn:** [Andrés Sánchez](https://www.linkedin.com/in/andres-sanchez04/)
-*   🌐 **Web:** [asanchez-cv.vercel.app](https://asanchez-cv.vercel.app/)
-*   🐙 **GitHub:** [@Sanchez042004](https://github.com/Sanchez042004)
-
+*Ingeniero de Sistemas | Desarrollador de Software y Analista de datos*
 ---
-<div align="center">
-    &copy; 2026 Andrés Sánchez. Hecho con ❤️.
-</div>
