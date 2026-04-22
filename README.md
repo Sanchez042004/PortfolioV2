@@ -84,8 +84,3 @@ El proyecto sigue una estructura limpia y predecible:
     npm run build
     ```
 
-## Autor
-
-**Andrés Sánchez**
-*Ingeniero de Sistemas | Desarrollador de Software y Analista de datos*
----
