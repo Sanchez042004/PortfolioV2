@@ -334,6 +334,14 @@
     height: 18px;
 }
 
+/* Touch targets on mobile */
+@media (max-width: 767px) {
+    .cert-view-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
 [data-theme='light'] .cert-view-btn:hover {
     color: #0DCCF2;
 }

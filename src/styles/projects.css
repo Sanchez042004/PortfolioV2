@@ -3,13 +3,25 @@
    ======================================== */
 .project-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.25rem;
     margin-top: 1rem;
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (min-width: 481px) {
+    .project-grid-v2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .project-grid-v2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project-card-v2 {
@@ -141,4 +153,15 @@
 .project-link-v2 svg {
     width: 20px;
     height: 20px;
+}
+
+/* Touch targets on mobile */
+@media (max-width: 767px) {
+    .project-link-v2 {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

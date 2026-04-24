@@ -9,7 +9,13 @@
 
 html {
     scroll-behavior: smooth;
-    zoom: 1.25;
+}
+
+/* Apply zoom scale only on desktop to avoid mobile overflow */
+@media (min-width: 1025px) {
+    html {
+        zoom: 1.25;
+    }
 }
 
 body {
@@ -58,7 +64,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
 }
 
 p {

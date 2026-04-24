@@ -21,14 +21,22 @@
 .about-grid {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    padding: 2.5rem;
+    gap: 2rem;
+    padding: 1.25rem;
+}
+
+@media (min-width: 481px) {
+    .about-grid {
+        padding: 1.75rem;
+        gap: 2.5rem;
+    }
 }
 
 @media (min-width: 768px) {
     .about-grid {
         flex-direction: row;
         gap: 4rem;
+        padding: 2.5rem;
     }
 }
 
@@ -40,7 +48,7 @@
 /* Command Line Style */
 .command-line {
     font-family: var(--font-mono);
-    font-size: 0.875rem;
+    font-size: clamp(0.7rem, 2vw, 0.875rem);
     margin-bottom: 1rem;
     display: flex;
     gap: 0.5rem;
@@ -84,13 +92,21 @@
     gap: 0.5rem;
     background-color: var(--color-terminal-body);
     border: 1px solid var(--color-border);
-    padding: 0.4rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 6px;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-text);
     transition: all 0.2s ease;
     cursor: default;
+    min-height: 44px;
+}
+
+@media (min-width: 768px) {
+    .skill-module {
+        min-height: unset;
+        padding: 0.4rem 0.75rem;
+    }
 }
 
 .skill-module:hover {

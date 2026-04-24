@@ -91,18 +91,29 @@ html[data-theme='dark'] .terminal-grid {
     z-index: 10;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    /* Increased gap */
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .experience-list {
+        gap: 3rem;
+    }
 }
 
 /* Experience Item - Timeline Line */
 /* Experience Item - Timeline Line */
 .experience-item {
     position: relative;
-    padding-left: 2.5rem;
+    padding-left: 1.75rem;
     border-left: 1px solid var(--color-border);
-    /* Thin subtle line */
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .experience-item {
+        padding-left: 2.5rem;
+        padding-bottom: 2rem;
+    }
 }
 
 /* Remove border for the last item */
@@ -158,8 +169,7 @@ html[data-theme='dark'] .terminal-grid {
 }
 
 .experience-role {
-    font-size: 1.25rem;
-    /* Larger */
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 700;
     color: var(--color-text);
     margin: 0;

@@ -61,6 +61,13 @@
     transition: all 0.2s ease;
     border: 1px solid transparent;
     text-decoration: none;
+    min-height: 44px;
+}
+
+@media (min-width: 768px) {
+    .btn {
+        min-height: unset;
+    }
 }
 
 .btn-primary {
@@ -211,6 +218,17 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+/* Fullscreen modal on small mobile */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        border-radius: 0;
+        border: none;
+    }
 }
 
 .close-btn {
@@ -390,7 +408,7 @@
 }
 
 .terminal-section-title {
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: 2rem;
