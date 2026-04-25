@@ -4,12 +4,24 @@
 .project-grid-v2 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
     margin-top: 1rem;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .project-grid-v2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .project-grid-v2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project-card-v2 {
